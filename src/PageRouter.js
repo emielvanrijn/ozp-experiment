@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import LandingPage from "./pages/LandingPage.jsx";
 
 export default function PageRouter() {
-  const [currentPage, setPage] = useState(0);
+  const [currentPage, setPage] = useState("landing");
 
   return renderPage(currentPage, setPage);
 }
 
 function renderPage(currentPage, setPage) {
   switch (currentPage) {
-    case 0:
-      return LandingPage(setPage);
+    case "landing":
+      return <LandingPage setPage={setPage} />;
     default:
-      return <div>Page with ID {currentPage} does not exist!</div>;
+      return (
+        <div>
+          Page <strong>{currentPage}</strong> does not exist!
+        </div>
+      );
   }
 }
