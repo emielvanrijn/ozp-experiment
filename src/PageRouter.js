@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage.jsx";
 
 export default function PageRouter() {
   const [currentPage, setPage] = useState(0);
