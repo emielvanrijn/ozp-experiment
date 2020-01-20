@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LandingPage from "./pages/LandingPage.jsx";
+import DestinationPage from "./pages/DestinationPage.jsx";
 
 export default function PageRouter() {
   const [currentPage, setPage] = useState("landing");
@@ -11,6 +12,8 @@ function renderPage(currentPage, setPage) {
   switch (currentPage) {
     case "landing":
       return <LandingPage setPage={setPage} />;
+    case "destination":
+      return <DestinationPage setPage={setPage} />;
     default:
       return (
         <div>
