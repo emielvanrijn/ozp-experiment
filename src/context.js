@@ -1,9 +1,5 @@
 import React from "react";
 
-const DataContext = React.createContext({
-  id: -1,
-  initialized: true,
-  termsAccepted: false
-});
+const DataContext = React.createContext(null);
 
 export default DataContext;
