@@ -9,7 +9,7 @@ import ActiveEntertainment from "./conditions/ActiveEntertainment.jsx";
 import DataContext from "./context.js";
 
 export default function PageRouter() {
-  const [currentPage, setPage] = useState("terms");
+  const [currentPage, setPage] = useState("condition");
   const { condition } = useContext(DataContext);
   return renderPage(currentPage, setPage, condition);
 }
