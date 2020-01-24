@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Control() {
+export default function Control({ setPage }) {
   return (
-    <div>
+    <>
       <p>Control Condition</p>
-    </div>
+    </>
   );
 }

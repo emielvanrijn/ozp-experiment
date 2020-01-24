@@ -4,17 +4,20 @@ import PageRouter from "./PageRouter";
 import "./App.scss";
 
 function App() {
-  const [id, setId] = useState(-1);
+  const [id] = useState(Date.now()); // in app al laten setten
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [destination, setDestination] = useState("");
 
+  const fakeCounter = 13;
+  const [condition] = useState(fakeCounter % 3); // Later vervangen door counter uit config
+
   const value = {
     id,
-    setId,
     termsAccepted,
     setTermsAccepted,
     destination,
-    setDestination
+    setDestination,
+    condition
   };
 
   return (
