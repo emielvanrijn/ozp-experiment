@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 export default function AcceptTermsPage({ setPage }) {
   return (
     <>
-      <Card className="Card">
+      <Card className="Card flex">
         <p>Bedankt dat je mij wilt helpen met mijn experiment!</p>
         <p>
           In dit experiment zul je (fictief) een treinreis boeken naar een

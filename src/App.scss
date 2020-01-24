@@ -1,5 +1,5 @@
 .App {
-  padding: 2rem;
+  padding: 1.5rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,8 +7,11 @@
 
 .Card {
   padding: 1rem;
-  flex: 1;
   margin-bottom: 1rem;
+}
+
+.flex {
+  flex: 1;
 }
 
 .Button {

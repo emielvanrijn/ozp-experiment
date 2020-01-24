@@ -5,11 +5,11 @@ import Button from "react-bootstrap/Button";
 export default function LandingPage({ setPage }) {
   return (
     <>
-      <Card className="Card">LandingPage</Card>
+      <Card className="Card flex">LandingPage</Card>
       <Button
         variant="success"
         className="Button"
-        onClick={() => setPage("information")}
+        onClick={() => setPage("destination")}
       >
         Starten
       </Button>

@@ -7,19 +7,19 @@ export default function DestinationPage({ setPage }) {
   return (
     <>
       <Card
-        className="Card"
+        className="Card flex"
         onClick={() => handleClick("Berlijn", setPage, setDestination)}
       >
         Berlijn
       </Card>
-      <Card className="Card">Brussel</Card>
-      <Card className="Card">Parijs</Card>
-      <Card className="Card">Londen</Card>
+      <Card className="Card flex">Brussel</Card>
+      <Card className="Card flex">Parijs</Card>
+      <Card className="Card flex">Londen</Card>
     </>
   );
 }
 
 function handleClick(destination, setPage, setDestination) {
-  setPage("detail");
+  setPage("information");
   setDestination(destination);
 }
