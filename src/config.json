@@ -1,3 +1,4 @@
 {
-  "waitTimeInMilliseconds": 8000
+  "waitTimeInMilliseconds": 8000,
+  "correctionTime": 1000
 }

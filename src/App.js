@@ -8,7 +8,7 @@ function App() {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [destination, setDestination] = useState("");
 
-  const fakeCounter = 13;
+  const fakeCounter = 0;
   const [condition] = useState(fakeCounter % 3); // Later vervangen door counter uit config
 
   const value = {
