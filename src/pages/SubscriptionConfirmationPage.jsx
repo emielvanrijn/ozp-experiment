@@ -1,8 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
-export default function SubscriptionConfirmationPage({ setPage }) {
+export default function SubscriptionConfirmationPage() {
   return (
     <>
       <Card className="Card">Aangemeld!</Card>

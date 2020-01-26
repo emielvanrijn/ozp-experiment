@@ -10,7 +10,7 @@ export default function QuestionnairePage({ setPage }) {
       <Button
         variant="success"
         className="Button"
-        onClick={() => setPage("goodbye")}
+        onClick={() => setPage("thankyou")}
       >
         Afronden
       </Button>

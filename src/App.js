@@ -3,6 +3,8 @@ import DataContext from "./context";
 import PageRouter from "./PageRouter";
 import "./App.scss";
 
+import { addTimestamp } from "./stitch";
+
 function App() {
   const [id] = useState(Date.now()); // in app al laten setten
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -17,7 +19,8 @@ function App() {
     setTermsAccepted,
     destination,
     setDestination,
-    condition
+    condition,
+    addTimestamp
   };
 
   return (

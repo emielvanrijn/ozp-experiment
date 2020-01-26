@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Spinner from "react-bootstrap/Spinner";
+// import Button from "react-bootstrap/Button";
+// import Spinner from "react-bootstrap/Spinner";
 import config from "../config.json";
 import Slider from "@material-ui/core/Slider";
 import { ThemeProvider } from "@material-ui/core/styles";

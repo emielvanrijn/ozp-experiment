@@ -10,7 +10,7 @@ import DataContext from "./context.js";
 import DealSelectionPage from "./pages/DealSelectionPage.jsx";
 import DealConfirmationPage from "./pages/DealConfirmationPage.jsx";
 import QuestionnairePage from "./pages/QuestionnairePage.jsx";
-import GoodbyePage from "./pages/GoodbyePage.jsx";
+import ThankyouPage from "./pages/ThankyouPage.jsx";
 import SubscriptionConfirmationPage from "./pages/SubscriptionConfirmationPage.jsx";
 
 export default function PageRouter() {
@@ -45,8 +45,8 @@ function renderPage(currentPage, setPage, condition) {
       return <DealConfirmationPage setPage={setPage} />;
     case "questionnaire":
       return <QuestionnairePage setPage={setPage} />;
-    case "goodbye":
-      return <GoodbyePage setPage={setPage} />;
+    case "thankyou":
+      return <ThankyouPage setPage={setPage} />;
     case "subscribed":
       return <SubscriptionConfirmationPage />;
     default:

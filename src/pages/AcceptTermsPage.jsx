@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import DataContext from "../context";
 
 export default function AcceptTermsPage({ setPage }) {
+  const { addTimestamp } = useContext(DataContext);
+  addTimestamp("terms");
   return (
     <>
       <Card className="Card flex">

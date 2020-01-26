@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Spinner from "react-bootstrap/Spinner";
+// import Button from "react-bootstrap/Button";
+// import Spinner from "react-bootstrap/Spinner";
 import config from "../config.json";
 import DataContext from "../context.js";
 
