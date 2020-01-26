@@ -11,7 +11,7 @@ export default function PassiveEntertainment({ setPage }) {
   //const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   setTimeout(() => {
     //setIsButtonEnabled(true);
-    setPage("information");
+    setPage("selection");
   }, config.waitTimeInMilliseconds);
 
   return (

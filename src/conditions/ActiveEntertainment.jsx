@@ -15,7 +15,7 @@ export default function ActiveEntertainment({ setPage }) {
   const [value, setValue] = useState(0);
   setTimeout(() => {
     // setIsButtonEnabled(true);
-    setPage("destination");
+    setPage("selection");
   }, config.waitTimeInMilliseconds + config.correctionTime);
 
   const theme = createMuiTheme({

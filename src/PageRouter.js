@@ -7,9 +7,14 @@ import Control from "./conditions/Control.jsx";
 import PassiveEntertainment from "./conditions/PassiveEntertainment.jsx";
 import ActiveEntertainment from "./conditions/ActiveEntertainment.jsx";
 import DataContext from "./context.js";
+import DealSelectionPage from "./pages/DealSelectionPage.jsx";
+import DealConfirmationPage from "./pages/DealConfirmationPage.jsx";
+import QuestionnairePage from "./pages/QuestionnairePage.jsx";
+import GoodbyePage from "./pages/GoodbyePage.jsx";
+import SubscriptionConfirmationPage from "./pages/SubscriptionConfirmationPage.jsx";
 
 export default function PageRouter() {
-  const [currentPage, setPage] = useState("condition");
+  const [currentPage, setPage] = useState("terms");
   const { condition } = useContext(DataContext);
   return renderPage(currentPage, setPage, condition);
 }
@@ -34,6 +39,16 @@ function renderPage(currentPage, setPage, condition) {
       ) : (
         <LandingPage /> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
       );
+    case "selection":
+      return <DealSelectionPage setPage={setPage} />;
+    case "confirmation":
+      return <DealConfirmationPage setPage={setPage} />;
+    case "questionnaire":
+      return <QuestionnairePage setPage={setPage} />;
+    case "goodbye":
+      return <GoodbyePage setPage={setPage} />;
+    case "subscribed":
+      return <SubscriptionConfirmationPage />;
     default:
       return (
         <div>
