@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import DataContext from "../context";
+import { addData } from "../stitch";
 
 export default function DestinationPage({ setPage }) {
   const { setDestination } = useContext(DataContext);
+  addData({ destination: Date.now() });
   return (
     <>
       <Card

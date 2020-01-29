@@ -1,7 +1,9 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { addData } from "../stitch";
 
 export default function DealSelectionPage({ setPage }) {
+  addData({ deal_selection: Date.now() });
   return (
     <>
       <Card className="Card flex" onClick={() => handleClick(setPage, 1)}>

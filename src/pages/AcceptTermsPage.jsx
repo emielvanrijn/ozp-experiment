@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useContext } from "react";
 import DataContext from "../context";
 
 export default function AcceptTermsPage({ setPage }) {
-  const { addTimestamp } = useContext(DataContext);
-  addTimestamp("terms");
+  const { counter } = useContext(DataContext);
   return (
     <>
       <Card className="Card flex">
@@ -14,6 +14,7 @@ export default function AcceptTermsPage({ setPage }) {
           In dit experiment zul je (fictief) een treinreis boeken naar een
           europese stad.
         </p>
+        <p>{counter}</p>
       </Card>
       <Button
         variant="success"

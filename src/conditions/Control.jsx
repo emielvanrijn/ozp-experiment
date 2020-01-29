@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import config from "../config.json";
 import { ProgressBar } from "react-bootstrap";
+import { addData } from "../stitch.js";
 
 export default function Control({ setPage }) {
   const [progressBarFill, setProgressBarFill] = useState(0);
 
   useEffect(() => {
+    addData({ conditionType: "control", conditionTime: Date.now() });
     let counter = 0;
-    setInterval(() => {
+    const interval = setInterval(() => {
       if (counter === 100) {
+        clearInterval(interval);
         setTimeout(() => {
           setPage("selection");
         }, config.correctionTime); // nodig om de animatie 'bij' te krijgen, staat gelijk aan correctie toegepast bij entertainment-condities
@@ -25,7 +28,6 @@ export default function Control({ setPage }) {
         counter += 3; // 16x
         setProgressBarFill(counter);
       }
-      console.log(counter);
     }, config.waitTimeInMilliseconds / 51);
   }, [setPage]);
 

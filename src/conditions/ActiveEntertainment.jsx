@@ -9,14 +9,20 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import green from "@material-ui/core/colors/green";
 import orange from "@material-ui/core/colors/orange";
 import red from "@material-ui/core/colors/red";
+import { addData } from "../stitch.js";
+import { useEffect } from "react";
 
 export default function ActiveEntertainment({ setPage }) {
   //const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [value, setValue] = useState(0);
-  setTimeout(() => {
-    // setIsButtonEnabled(true);
-    setPage("selection");
-  }, config.waitTimeInMilliseconds + config.correctionTime);
+
+  useEffect(() => {
+    addData({ conditionType: "active", conditionTime: Date.now() });
+    setTimeout(() => {
+      // setIsButtonEnabled(true);
+      setPage("selection");
+    }, config.waitTimeInMilliseconds + config.correctionTime);
+  }, [setPage]);
 
   const theme = createMuiTheme({
     palette: {

@@ -1,8 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { addData } from "../stitch";
 
 export default function ThankyouPage({ setPage }) {
+  addData({ thankyou: Date.now() });
   return (
     <>
       <Card className="Card">Hartelijk dank!</Card>
