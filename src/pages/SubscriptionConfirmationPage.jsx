@@ -6,8 +6,8 @@ export default function SubscriptionConfirmationPage() {
   addData({ subscription: Date.now() });
   return (
     <>
-      <Card className="Card">Aangemeld!</Card>
-      <Card className="Card flex">Je bent nu aangemeld!</Card>
+      <Card className="card">Aangemeld!</Card>
+      <Card className="card flex">Je bent nu aangemeld!</Card>
     </>
   );
 }

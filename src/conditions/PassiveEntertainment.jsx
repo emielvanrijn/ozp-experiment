@@ -23,8 +23,15 @@ export default function PassiveEntertainment({ setPage }) {
       <Card className="Card flex">
         <div className="centered-contents">
           <p>
-            Wist je dat een retour naar <em>{destination}</em> met het vliegtuig
-            zou leiden tot een uitstoot van <strong>190kg </strong>CO
+            <em>Terwijl wij zoeken...</em>
+          </p>
+          <p>
+            Wist je dat een retour naar
+            <strong>
+              <em> {destination.name} </em>
+            </strong>
+            met het vliegtuig zou leiden tot een uitstoot van
+            <strong> 150kg </strong>CO
             <sub>2</sub>?
           </p>
           <p>

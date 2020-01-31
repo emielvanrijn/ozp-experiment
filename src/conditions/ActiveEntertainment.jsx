@@ -42,8 +42,11 @@ export default function ActiveEntertainment({ setPage }) {
 
   return (
     <>
-      <Card className="Card flex">
+      <Card className="card flex">
         <div className="centered-contents">
+          <p>
+            <em>Terwijl wij zoeken...</em>
+          </p>
           {value >= 150 && value < 175 ? (
             <p>
               <strong>Inderdaad tussen de 150 en 175 kilogram!</strong>

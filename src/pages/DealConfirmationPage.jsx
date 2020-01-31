@@ -7,10 +7,10 @@ export default function DealConfirmationPage({ setPage }) {
   addData({ deal_confirmation: Date.now() });
   return (
     <>
-      <Card className="Card flex">Geselecteerde deal</Card>
+      <Card className="card flex">Geselecteerde deal</Card>
       <Button
         variant="success"
-        className="Button"
+        className="button"
         onClick={() => setPage("questionnaire")}
       >
         Bestel ticket

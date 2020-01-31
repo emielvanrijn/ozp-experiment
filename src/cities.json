@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Berlijn",
+    "baseprice": 60,
+    "distance": 650,
+    "image": "../images/berlijn.jpg"
+  },
+  {
+    "name": "Brussel",
+    "baseprice": 40,
+    "distance": 200,
+    "image": "../images/brussel.jpg"
+  },
+  {
+    "name": "Parijs",
+    "baseprice": 50,
+    "distance": 500,
+    "image": "../images/parijs.jpg"
+  },
+  {
+    "name": "Londen",
+    "baseprice": 50,
+    "distance": 600,
+    "image": "../images/londen.jpg"
+  }
+]

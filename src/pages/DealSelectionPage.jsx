@@ -6,13 +6,13 @@ export default function DealSelectionPage({ setPage }) {
   addData({ deal_selection: Date.now() });
   return (
     <>
-      <Card className="Card flex" onClick={() => handleClick(setPage, 1)}>
+      <Card className="card flex" onClick={() => handleClick(setPage, 1)}>
         Deal 1
       </Card>
-      <Card className="Card flex" onClick={() => handleClick(setPage, 2)}>
+      <Card className="card flex" onClick={() => handleClick(setPage, 2)}>
         Deal 2
       </Card>
-      <Card className="Card flex" onClick={() => handleClick(setPage, 3)}>
+      <Card className="card flex" onClick={() => handleClick(setPage, 3)}>
         Deal 3
       </Card>
     </>

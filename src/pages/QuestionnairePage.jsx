@@ -7,11 +7,11 @@ export default function QuestionnairePage({ setPage }) {
   addData({ questionnaire: Date.now() });
   return (
     <>
-      <Card className="Card">Questionnaire</Card>
-      <Card className="Card flex">Hier komt een vragenformulier</Card>
+      <Card className="card">Questionnaire</Card>
+      <Card className="card flex">Hier komt een vragenformulier</Card>
       <Button
         variant="success"
-        className="Button"
+        className="button"
         onClick={() => setPage("thankyou")}
       >
         Afronden

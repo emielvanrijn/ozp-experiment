@@ -33,7 +33,9 @@ export default function Control({ setPage }) {
 
   return (
     <>
-      <p>Control Condition</p>
+      <p>
+        <em>We zijn voor je op zoek...</em>
+      </p>
       <ProgressBar animated={true} now={progressBarFill} />
     </>
   );

@@ -8,17 +8,18 @@ export default function AcceptTermsPage({ setPage }) {
   const { counter } = useContext(DataContext);
   return (
     <>
-      <Card className="Card flex">
+      <Card className="card flex">
         <p>Bedankt dat je mij wilt helpen met mijn experiment!</p>
         <p>
           In dit experiment zul je (fictief) een treinreis boeken naar een
           europese stad.
         </p>
-        <p>{counter}</p>
+        <p>(verdere terms and conds. voor onderzoek)</p>
+        <p>Aantal deelnemers tot nu toe: {counter}</p>
       </Card>
       <Button
         variant="success"
-        className="Button"
+        className="button"
         onClick={() => setPage("landing")}
       >
         Accepteer en ga door met onderzoek
