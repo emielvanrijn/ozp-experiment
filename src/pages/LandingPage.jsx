@@ -17,8 +17,8 @@ export default function LandingPage({ setPage }) {
           speciaal op jou afgestemd!
         </p>
         <p>
-          Op dit moment bieden wij treinreizen aan naar: Berlijn, Brussel,
-          Londen en Parijs.
+          Op dit moment bieden wij zoeken naar treinreizen met als bestemming:
+          Berlijn, Brussel, Londen en Parijs.
         </p>
         <br />
         <br />

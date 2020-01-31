@@ -17,11 +17,8 @@ export default function AlternativeActiveEntertainment({ setPage }) {
   }, [setPage]);
 
   const settings = {
-    width: 320,
-    height: 240,
     image: destination.image,
-    finishPercent: 100,
-    onComplete: () => console.log("The card is now clear!")
+    finishPercent: 90
   };
 
   return (
@@ -32,21 +29,18 @@ export default function AlternativeActiveEntertainment({ setPage }) {
             <em>Terwijl wij zoeken...</em>
             <br />
           </p>
-          <p>Kras voor een leuk weetje!</p>
+          <p>Kras de foto hieronder voor een leuk weetje!</p>
           <ScratchCard {...settings}>
             <div className="centered-contents">
               <p>
-                Wist je dat een retour naar
-                <strong>
-                  <em> {destination.name} </em>
-                </strong>
-                met het vliegtuig zou leiden tot een uitstoot van
-                <strong> 150kg </strong>CO
-                <sub>2</sub>?
+                Deze treinreis naar
+                <em> {destination.name} </em>
+                leidt tot slechts <strong>50kg </strong>CO
+                <sub>2</sub>!
               </p>
               <p>
-                Met de trein is dit slechts <strong>50kg </strong>CO
-                <sub>2</sub>!
+                Veel minder dan de <strong> 150kg </strong>CO
+                <sub>2</sub> als je met het vliegtuig zou reizen!
               </p>
             </div>
           </ScratchCard>

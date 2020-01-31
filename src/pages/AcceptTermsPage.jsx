@@ -14,9 +14,9 @@ export default function AcceptTermsPage({ setPage }) {
           In dit experiment zul je (fictief) een treinreis boeken naar een
           europese stad.
         </p>
-        <p>(verdere terms and conds. voor onderzoek)</p>
-        <p>Aantal deelnemers tot nu toe: {counter}</p>
+        <p>[VERDERE TERMS EN COND.]</p>
       </Card>
+      <Card>Aantal deelnemers tot nu toe: {counter}</Card>
       <Button
         variant="success"
         className="button"
