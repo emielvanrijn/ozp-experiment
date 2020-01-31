@@ -5,7 +5,8 @@ import DestinationPage from "./pages/DestinationPage.jsx";
 import InformationPage from "./pages/InformationPage.jsx";
 import Control from "./conditions/Control.jsx";
 import PassiveEntertainment from "./conditions/PassiveEntertainment.jsx";
-import ActiveEntertainment from "./conditions/ActiveEntertainment.jsx";
+// import ActiveEntertainment from "./conditions/ActiveEntertainment.jsx";
+import AlternativeActiveEntertainment from "./conditions/AlternativeActiveEntertainment.jsx";
 import DataContext from "./context.js";
 import DealSelectionPage from "./pages/DealSelectionPage.jsx";
 import DealConfirmationPage from "./pages/DealConfirmationPage.jsx";
@@ -35,7 +36,8 @@ function renderPage(currentPage, setPage, condition) {
       ) : condition === 1 ? (
         <PassiveEntertainment setPage={setPage} />
       ) : condition === 2 ? (
-        <ActiveEntertainment setPage={setPage} />
+        // <ActiveEntertainment setPage={setPage} />
+        <AlternativeActiveEntertainment setPage={setPage} />
       ) : (
         <LandingPage /> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
       );
