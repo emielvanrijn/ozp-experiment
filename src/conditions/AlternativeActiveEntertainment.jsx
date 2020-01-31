@@ -11,14 +11,16 @@ export default function AlternativeActiveEntertainment({ setPage }) {
 
   useEffect(() => {
     addData({ conditionType: "active", conditionTime: Date.now() });
-    setTimeout(() => {
-      setPage("selection");
-    }, config.waitTimeInMilliseconds + config.correctionTime);
+    // setTimeout(() => {
+    //   setPage("selection");
+    // }, config.waitTimeInMilliseconds + config.correctionTime);
   }, [setPage]);
 
   const settings = {
+    width: 320,
+    height: 240,
     image: destination.image,
-    finishPercent: 90
+    finishPercent: 95
   };
 
   return (
