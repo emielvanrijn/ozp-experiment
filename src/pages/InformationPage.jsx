@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
-import { useContext } from "react";
 import DataContext from "../context";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { useState } from "react";
 
 export default function InformationPage({ setPage }) {
-  const { destination } = useContext(DataContext);
-  const [occupation, setOccupation] = useState(null);
-  const [preference, setPreference] = useState(null);
+  const {
+    destination,
+    occupation,
+    setOccupation,
+    preference,
+    setPreference
+  } = useContext(DataContext);
   addData({ information: Date.now() });
   return (
     <>
@@ -86,6 +88,7 @@ export default function InformationPage({ setPage }) {
         variant="success"
         className="button"
         onClick={() => setPage("condition")}
+        disabled={!(occupation && preference)}
       >
         Zoeken
       </Button>

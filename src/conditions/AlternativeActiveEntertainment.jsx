@@ -11,9 +11,9 @@ export default function AlternativeActiveEntertainment({ setPage }) {
 
   useEffect(() => {
     addData({ conditionType: "active", conditionTime: Date.now() });
-    // setTimeout(() => {
-    //   setPage("selection");
-    // }, config.waitTimeInMilliseconds + config.correctionTime);
+    setTimeout(() => {
+      setPage("selection");
+    }, config.waitTimeInMilliseconds + config.correctionTime);
   }, [setPage]);
 
   const settings = {

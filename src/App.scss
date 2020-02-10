@@ -89,6 +89,17 @@ body {
   background-color: #0063d3;
   box-shadow: inset 0 -0.125rem 0 #004ba0; // NS.nl
   border: none;
+  &:disabled {
+    background-color: lightgrey;
+    box-shadow: none;
+    opacity: 100;
+  }
+}
+
+.deal {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
 }
 
 .selection-button {
@@ -114,6 +125,33 @@ body {
 .slider-container {
   width: 75%;
   padding-top: 3rem;
+}
+
+.question-label {
+  text-align: center;
+}
+
+.questionnaire-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.2rem;
+  margin-bottom: 3rem;
+  &-item {
+    font-size: 0.75rem;
+    border: 2px solid var(--ns-blue);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+    text-align: center;
+  }
+}
+
+.email-input {
+  border: 2px solid var(--ns-blue);
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 /* OVERRIDES */

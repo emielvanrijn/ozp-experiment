@@ -7,13 +7,19 @@ import { /*getCounter*/ initDB } from "./stitch";
 function App() {
   const [destination, setDestination] = useState(null);
   const [counter /*setCounter*/] = useState(0); //TODO: terugzetten naar null
-  const [condition /*setCondition*/] = useState(2); //TODO: terugzetten naar null
+  const [condition /*setCondition*/] = useState(0); //TODO: terugzetten naar null
+  const [occupation, setOccupation] = useState(null);
+  const [preference, setPreference] = useState(null);
 
   const value = {
     destination,
     setDestination,
     condition,
-    counter
+    counter,
+    occupation,
+    setOccupation,
+    preference,
+    setPreference
   };
 
   useEffect(() => {

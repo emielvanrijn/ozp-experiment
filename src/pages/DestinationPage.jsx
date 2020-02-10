@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import DataContext from "../context";
 import { addData } from "../stitch";
 import cities from "../cities.json";
+import { getTimeString } from "../helpers";
 
 export default function DestinationPage({ setPage }) {
   const { setDestination } = useContext(DataContext);
@@ -29,8 +30,10 @@ function CityCard({ city, setPage, setDestination }) {
     >
       <div className="city-info">
         <div>
-          <span className="city-name">{city.name}</span>
-          <em> ({city.distance}km)</em>
+          <span className="city-name">{city.name} </span>
+          <em className="city-distance">
+            ({city.distance}km, {getTimeString(city.traveltime)})
+          </em>
         </div>
         <div className="price-listing">
           <div>
