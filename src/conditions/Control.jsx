@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import config from "../config.json";
-import { ProgressBar } from "react-bootstrap";
+import { ProgressBar, Card } from "react-bootstrap";
 import { addData } from "../stitch.js";
 
 export default function Control({ setPage }) {
@@ -14,7 +14,7 @@ export default function Control({ setPage }) {
         clearInterval(interval);
         setTimeout(() => {
           setPage("selection");
-        }, config.correctionTime); // nodig om de animatie 'bij' te krijgen, staat gelijk aan correctie toegepast bij entertainment-condities
+        }, 1000); // nodig om de animatie 'bij' te krijgen, wordt verderop van correctiontime afgetrokken
       }
       if (counter >= 82 && counter < 100) {
         counter += 1; // 18x
@@ -28,15 +28,17 @@ export default function Control({ setPage }) {
         counter += 3; // 16x
         setProgressBarFill(counter);
       }
-    }, config.waitTimeInMilliseconds / 51);
+    }, (config.waitTimeInMilliseconds + (config.correctionTime - 1000)) / 51);
   }, [setPage]);
 
   return (
-    <>
-      <p>
-        <em>We zijn voor je op zoek...</em>
-      </p>
-      <ProgressBar animated={true} now={progressBarFill} />
-    </>
+    <Card className="card flex centered-contents">
+      <div>
+        <p>
+          <em>We zijn voor je op zoek...</em>
+        </p>
+        <ProgressBar animated={true} now={progressBarFill} />
+      </div>
+    </Card>
   );
 }

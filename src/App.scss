@@ -154,6 +154,13 @@ body {
   padding: 0.5rem;
 }
 
+.attention-text {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 /* OVERRIDES */
 .ScratchCard {
   &__Container {

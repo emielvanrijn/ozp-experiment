@@ -25,33 +25,9 @@ export default function PassiveEntertainment({ setPage }) {
           <p>
             <em>Terwijl wij zoeken...</em>
           </p>
-          <p>
-            Wist je dat een retour naar
-            <strong>
-              <em> {destination.name} </em>
-            </strong>
-            met het vliegtuig zou leiden tot een uitstoot van
-            <strong> 150kg </strong>CO
-            <sub>2</sub>?
-          </p>
-          <p>
-            Met de trein is dit slechts <strong>50kg </strong>CO
-            <sub>2</sub>!
-          </p>
+          <p>{destination.longFact}</p>
         </div>
       </Card>
-      {/* <Button
-        disabled={!isButtonEnabled}
-        variant="success"
-        className="Button"
-        onClick={() => setPage("information")}
-      >
-        {isButtonEnabled ? (
-          "Ga naar resultaten"
-        ) : (
-          <Spinner animation="border" />
-        )}
-      </Button> */}
     </>
   );
 }

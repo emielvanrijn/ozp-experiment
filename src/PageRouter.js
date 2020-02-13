@@ -15,7 +15,7 @@ import ThankyouPage from "./pages/ThankyouPage.jsx";
 import SubscriptionConfirmationPage from "./pages/SubscriptionConfirmationPage.jsx";
 
 export default function PageRouter() {
-  const [currentPage, setPage] = useState("terms");
+  const [currentPage, setPage] = useState("destination");
   const { condition } = useContext(DataContext);
   return renderPage(currentPage, setPage, condition);
 }
