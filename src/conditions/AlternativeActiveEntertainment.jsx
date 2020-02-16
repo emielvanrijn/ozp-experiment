@@ -6,15 +6,15 @@ import { useEffect } from "react";
 import ScratchCard from "../components/ScratchCard.jsx";
 import DataContext from "../context.js";
 
-export default function AlternativeActiveEntertainment({ setPage }) {
+export default function AlternativeActiveEntertainment({ nextPage }) {
   const { destination } = useContext(DataContext);
 
   useEffect(() => {
     addData({ conditionType: "active", conditionTime: Date.now() });
     setTimeout(() => {
-      setPage("selection");
+      nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);
-  }, [setPage]);
+  }, [nextPage]);
 
   const settings = {
     width: 320,

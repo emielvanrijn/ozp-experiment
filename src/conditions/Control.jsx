@@ -3,7 +3,7 @@ import config from "../config.json";
 import { ProgressBar, Card } from "react-bootstrap";
 import { addData } from "../stitch.js";
 
-export default function Control({ setPage }) {
+export default function Control({ nextPage }) {
   const [progressBarFill, setProgressBarFill] = useState(0);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Control({ setPage }) {
       if (counter === 100) {
         clearInterval(interval);
         setTimeout(() => {
-          setPage("selection");
+          nextPage();
         }, 1000); // nodig om de animatie 'bij' te krijgen, wordt verderop van correctiontime afgetrokken
       }
       if (counter >= 82 && counter < 100) {
@@ -29,7 +29,7 @@ export default function Control({ setPage }) {
         setProgressBarFill(counter);
       }
     }, (config.waitTimeInMilliseconds + (config.correctionTime - 1000)) / 51);
-  }, [setPage]);
+  }, [nextPage]);
 
   return (
     <Card className="card flex centered-contents">

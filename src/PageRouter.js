@@ -5,7 +5,6 @@ import DestinationPage from "./pages/DestinationPage.jsx";
 import InformationPage from "./pages/InformationPage.jsx";
 import Control from "./conditions/Control.jsx";
 import PassiveEntertainment from "./conditions/PassiveEntertainment.jsx";
-// import ActiveEntertainment from "./conditions/ActiveEntertainment.jsx";
 import AlternativeActiveEntertainment from "./conditions/AlternativeActiveEntertainment.jsx";
 import DataContext from "./context.js";
 import DealSelectionPage from "./pages/DealSelectionPage.jsx";
@@ -13,43 +12,60 @@ import DealConfirmationPage from "./pages/DealConfirmationPage.jsx";
 import QuestionnairePage from "./pages/QuestionnairePage.jsx";
 import ThankyouPage from "./pages/ThankyouPage.jsx";
 import SubscriptionConfirmationPage from "./pages/SubscriptionConfirmationPage.jsx";
+import Button from "react-bootstrap/Button";
 
 export default function PageRouter() {
-  const [currentPage, setPage] = useState("destination");
+  const [currentPage, setPage] = useState(0);
   const { condition } = useContext(DataContext);
-  return renderPage(currentPage, setPage, condition);
+
+  const nextPage = () => setPage(currentPage + 1);
+  const prevPage = () => setPage(currentPage - 1);
+
+  return <>
+    {currentPage >= 1 ? <div className="banner">
+      <div className="banner__back-button--container">
+        <Button className="button banner__back-button" disabled={currentPage < 2 || (currentPage >= 4 && currentPage < 6)} onClick={prevPage}>{"<"}</Button>
+      </div>
+      <div className="banner__content">Treinreisvergelijker.nl</div>
+      <div className="banner__logo--container">
+        <img className="banner__logo" src="/images/train-logo.png" alt="Trein-Logo" />
+      </div>
+    </div> : null}
+    <div className="content">
+      {renderPage(currentPage, nextPage, condition)}
+    </div>
+  </>
 }
 
-function renderPage(currentPage, setPage, condition) {
+function renderPage(currentPage, nextPage, condition) {
   switch (currentPage) {
-    case "terms":
-      return <AcceptTermsPage setPage={setPage} />;
-    case "landing":
-      return <LandingPage setPage={setPage} />;
-    case "destination":
-      return <DestinationPage setPage={setPage} />;
-    case "information":
-      return <InformationPage setPage={setPage} />;
-    case "condition":
+    case 0:
+      return <AcceptTermsPage nextPage={nextPage} />;
+    case 1:
+      return <LandingPage nextPage={nextPage} />;
+    case 2:
+      return <DestinationPage nextPage={nextPage} />;
+    case 3:
+      return <InformationPage nextPage={nextPage} />;
+    case 4:
       return condition === 0 ? (
-        <Control setPage={setPage} />
+        <Control nextPage={nextPage} />
       ) : condition === 1 ? (
-        <PassiveEntertainment setPage={setPage} />
+        <PassiveEntertainment nextPage={nextPage} />
       ) : condition === 2 ? (
-        // <ActiveEntertainment setPage={setPage} />
-        <AlternativeActiveEntertainment setPage={setPage} />
+        <AlternativeActiveEntertainment nextPage={nextPage} />
       ) : (
-        <LandingPage /> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
-      );
-    case "selection":
-      return <DealSelectionPage setPage={setPage} />;
-    case "confirmation":
-      return <DealConfirmationPage setPage={setPage} />;
-    case "questionnaire":
-      return <QuestionnairePage setPage={setPage} />;
-    case "thankyou":
-      return <ThankyouPage setPage={setPage} />;
-    case "subscribed":
+              <div className="errpr">Error</div> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
+            );
+    case 5:
+      return <DealSelectionPage nextPage={nextPage} />;
+    case 6:
+      return <DealConfirmationPage nextPage={nextPage} />;
+    case 7:
+      return <QuestionnairePage nextPage={nextPage} />;
+    case 8:
+      return <ThankyouPage nextPage={nextPage} />;
+    case 9:
       return <SubscriptionConfirmationPage />;
     default:
       return (

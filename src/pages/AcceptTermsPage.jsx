@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useContext } from "react";
 import DataContext from "../context";
 
-export default function AcceptTermsPage({ setPage }) {
+export default function AcceptTermsPage({ nextPage }) {
   const { counter } = useContext(DataContext);
   return (
     <>
@@ -20,7 +20,7 @@ export default function AcceptTermsPage({ setPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => setPage("landing")}
+        onClick={nextPage}
       >
         Accepteer en ga door met onderzoek
       </Button>

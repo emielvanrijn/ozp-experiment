@@ -15,11 +15,48 @@ body {
 }
 
 .app {
-  padding: 1.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #ffc917; // NS.nl
+}
+
+// BEM-attempt
+.banner {
+  display: flex;
+  height: 4rem;
+  background-color: var(--ns-yellow);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  &__back-button,
+  &__logo {
+    width: 3.2rem;
+    height: 2.5rem;
+
+    &--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
@@ -85,10 +122,11 @@ body {
 }
 
 .button {
-  height: 8vh;
+  height: 3rem;
   background-color: #0063d3;
   box-shadow: inset 0 -0.125rem 0 #004ba0; // NS.nl
   border: none;
+
   &:disabled {
     background-color: lightgrey;
     box-shadow: none;
@@ -136,6 +174,7 @@ body {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 0.2rem;
   margin-bottom: 3rem;
+
   &-item {
     font-size: 0.75rem;
     border: 2px solid var(--ns-blue);
@@ -170,14 +209,17 @@ body {
     align-items: center;
     justify-content: center;
   }
+
   &__Canvas {
     padding: 2.5rem;
   }
+
   &__Canvas,
   &__Result {
     width: 100%;
     height: 100%;
   }
+
   &__Result {
     padding: 3rem;
   }

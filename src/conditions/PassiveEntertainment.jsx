@@ -6,7 +6,7 @@ import config from "../config.json";
 import DataContext from "../context.js";
 import { addData } from "../stitch.js";
 
-export default function PassiveEntertainment({ setPage }) {
+export default function PassiveEntertainment({ nextPage }) {
   const { destination } = useContext(DataContext);
 
   //const [isButtonEnabled, setIsButtonEnabled] = useState(false);
@@ -14,9 +14,9 @@ export default function PassiveEntertainment({ setPage }) {
     addData({ conditionType: "passive", conditionTime: Date.now() });
     setTimeout(() => {
       // setIsButtonEnabled(true);
-      setPage("selection");
+      nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);
-  }, [setPage]);
+  }, [nextPage]);
 
   return (
     <>
