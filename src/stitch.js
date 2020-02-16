@@ -26,6 +26,7 @@ export const initDB = async () => {
 };
 
 export function addData(payload) {
+  console.log(payload);
   data.updateOne({ id: userId }, { $set: payload });
 }
 

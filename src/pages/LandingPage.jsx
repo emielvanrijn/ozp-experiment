@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
 
-export default function LandingPage({ setPage }) {
-  addData({ landing: Date.now() });
+export default function LandingPage({ nextPage }) {
+
+  useEffect(() => {
+    addData({ landing: Date.now() });
+  }, []);
+
   return (
     <>
-      <Card className="card title">TreinReisVergelijker.nl</Card>
       <Card className="card flex">
         <p>
           Welkom bij dé internationale treinreizenvergelijker van Nederland!
@@ -27,7 +30,7 @@ export default function LandingPage({ setPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => setPage("destination")}
+        onClick={() => nextPage()}
       >
         Starten
       </Button>

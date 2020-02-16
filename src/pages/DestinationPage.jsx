@@ -1,20 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import DataContext from "../context";
 import { addData } from "../stitch";
 import cities from "../cities.json";
 import { getTimeString } from "../helpers";
 
-export default function DestinationPage({ setPage }) {
+export default function DestinationPage({ nextPage }) {
   const { setDestination } = useContext(DataContext);
-  addData({ destination: Date.now() });
+
+  useEffect(() => {
+    addData({ destination: Date.now() });
+  }, [])
+
   return (
     <>
       {cities.map((city, index) => (
         <CityCard
           key={index}
           city={city}
-          setPage={setPage}
+          nextPage={nextPage}
           setDestination={setDestination}
         />
       ))}
@@ -22,11 +26,11 @@ export default function DestinationPage({ setPage }) {
   );
 }
 
-function CityCard({ city, setPage, setDestination }) {
+function CityCard({ city, nextPage, setDestination }) {
   return (
     <Card
       className="card city"
-      onClick={() => handleClick(city, setPage, setDestination)}
+      onClick={() => handleClick(city, nextPage, setDestination)}
     >
       <div className="city-info">
         <div>
@@ -54,7 +58,7 @@ function CityCard({ city, setPage, setDestination }) {
   );
 }
 
-function handleClick(city, setPage, setDestination) {
-  setPage("information");
+function handleClick(city, nextPage, setDestination) {
+  nextPage();
   setDestination(city);
 }

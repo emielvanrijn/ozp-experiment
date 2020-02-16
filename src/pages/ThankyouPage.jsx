@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
 
-export default function ThankyouPage({ setPage }) {
+export default function ThankyouPage({ nextPage }) {
   const [email, setEmail] = useState("");
-  addData({ thankyou: Date.now() });
+
+  useEffect(() => {
+    addData({ thankyou: Date.now() });
+  }, [])
+
   return (
     <>
-      <Card className="card">Hartelijk dank!</Card>
       <Card className="card flex">
         <p>
           Heel erg bedankt voor het deelnemen! Mocht je op de hoogte willen
@@ -25,7 +28,7 @@ export default function ThankyouPage({ setPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => setPage("subscribed")}
+        onClick={() => nextPage()}
         disabled={email === "" ? true : false}
       >
         Aanmelden

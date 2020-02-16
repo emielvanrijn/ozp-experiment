@@ -1,22 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
 import DataContext from "../context";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-export default function InformationPage({ setPage }) {
+export default function InformationPage({ nextPage }) {
   const {
-    destination,
     occupation,
     setOccupation,
     preference,
     setPreference
   } = useContext(DataContext);
-  addData({ information: Date.now() });
+
+  useEffect(() => {
+    addData({ information: Date.now() });
+  }, [])
   return (
     <>
-      <Card className="card title">Treinreis naar {destination.name}</Card>
       <Card className="card flex">
         <p>
           Om de beste deal voor jou te kunnen vinden, hebben we de volgende
@@ -87,7 +88,7 @@ export default function InformationPage({ setPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => setPage("condition")}
+        onClick={() => nextPage()}
         disabled={!(occupation && preference)}
       >
         Zoeken

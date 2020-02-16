@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
 
-export default function QuestionnairePage({ setPage }) {
+export default function QuestionnairePage({ nextPage }) {
   const [wachtPerceptie, setWachtPerceptie] = useState(null);
   const [wachtTijdSchatting, setWachtTijdSchatting] = useState(null);
 
@@ -33,10 +33,12 @@ export default function QuestionnairePage({ setPage }) {
     "15"
   ];
 
-  addData({ questionnaire: Date.now() });
+  useEffect(() => {
+    addData({ questionnaire: Date.now() });
+  }, [])
+
   return (
     <>
-      <Card className="card">Questionnaire</Card>
       <Card className="card flex">
         <p className="question-label">Wat vond je van de wachttijd?</p>
         <ButtonGroupWithOptions
@@ -56,7 +58,7 @@ export default function QuestionnairePage({ setPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => setPage("thankyou")}
+        onClick={() => nextPage()}
       >
         Afronden
       </Button>

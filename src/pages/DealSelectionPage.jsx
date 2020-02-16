@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { addData } from "../stitch";
 import deals from "../deals.json";
 import DataContext from "../context";
 import { getTimeString } from "../helpers";
 
-export default function DealSelectionPage({ setPage }) {
+export default function DealSelectionPage({ nextPage }) {
   const { preference, destination } = useContext(DataContext);
 
-  addData({ deal_selection: Date.now() });
+  useEffect(() => {
+    addData({ deal_selection: Date.now() });
+  }, [])
+
 
   const preferredDeal = deals.filter(deal => deal.type === preference)[0];
   const remainingDeals = deals.filter(deal => deal.type !== preference);
@@ -19,7 +22,7 @@ export default function DealSelectionPage({ setPage }) {
       <DealCard
         deal={preferredDeal}
         destination={destination}
-        setPage={setPage}
+        nextPage={nextPage}
       />
       <p>Andere deals</p>
       {remainingDeals.map((deal, index) => (
@@ -27,17 +30,16 @@ export default function DealSelectionPage({ setPage }) {
           key={index}
           deal={deal}
           destination={destination}
-          setPage={setPage}
+          nextPage={nextPage}
         />
       ))}
     </>
   );
 }
 
-function DealCard({ deal, destination, setPage }) {
-  console.log(destination);
+function DealCard({ deal, destination, nextPage }) {
   return (
-    <Card className="card deal" onClick={() => handleClick(setPage, 1)}>
+    <Card className="card deal" onClick={() => handleClick(nextPage, 1)}>
       <h5>{deal.title}</h5>
       Prijs: €{destination.baseprice * deal.price_factor + ",00"}
       <br />
@@ -51,6 +53,6 @@ function DealCard({ deal, destination, setPage }) {
   );
 }
 
-function handleClick(setPage, selectedIndex) {
-  setPage("confirmation");
+function handleClick(nextPage, selectedIndex) {
+  nextPage();
 }
