@@ -12,8 +12,11 @@ function App() {
   const [preference, setPreference] = useState(null);
   const [startDrawing, setStartDrawing] = useState(null);
   const [finishDrawing, setFinishDrawing] = useState(null);
+  const [currentPage, setPage] = useState(1);
 
   const value = {
+    currentPage,
+    setPage,
     destination,
     setDestination,
     condition,
@@ -42,7 +45,7 @@ function App() {
 
   return (
     <DataContext.Provider value={value}>
-      <div className="app">
+      <div className={currentPage === 0 ? "intro" : "app"}>
         <PageRouter />
       </div>
     </DataContext.Provider>

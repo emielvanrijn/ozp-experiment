@@ -4,36 +4,54 @@ import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
 
 export default function LandingPage({ nextPage }) {
-
   useEffect(() => {
     addData({ landing: Date.now() });
   }, []);
 
   return (
     <>
-      <Card className="card flex">
-        <p>
-          Welkom bij dé internationale treinreizenvergelijker van Nederland!
-        </p>
-        <p>
-          Na het selecteren van jouw bestemming zoeken wij de drie beste deals,
-          speciaal op jou afgestemd!
-        </p>
-        <p>
-          Op dit moment bieden wij zoeken naar treinreizen met als bestemming:
-          Berlijn, Brussel, Londen en Parijs.
-        </p>
+      <div className="landingpage__jumbotron">
+        <div className="landingpage__jumbotron--content">
+          <span>Dé internationale treinreizenvergelijker van Nederland!</span>
+        </div>
+      </div>
+      <Card className="card">
+        <p>Op dit moment bieden wij aan om te zoeken naar treinreizen naar:</p>
+        <div className="landingpage__cities">
+          <div
+            className="landingpage__city"
+            style={{ backgroundImage: "url(../images/berlijn.jpg)" }}
+          >
+            Berlijn
+          </div>
+          <div
+            className="landingpage__city"
+            style={{ backgroundImage: "url(../images/brussel.jpg)" }}
+          >
+            Brussel
+          </div>
+          <div
+            className="landingpage__city"
+            style={{ backgroundImage: "url(../images/Londen.jpg)" }}
+          >
+            Londen
+          </div>
+          <div
+            className="landingpage__city"
+            style={{ backgroundImage: "url(../images/Parijs.jpg)" }}
+          >
+            Parijs
+          </div>
+        </div>
         <br />
+        <center>
+          <em>Waar gaat jouw volgende reis naartoe?</em>
+        </center>
         <br />
-        <p>Waar gaat jouw volgende reis naartoe?</p>
+        <Button variant="success" className="button" onClick={() => nextPage()}>
+          Start jouw zoektocht!
+        </Button>
       </Card>
-      <Button
-        variant="success"
-        className="button"
-        onClick={() => nextPage()}
-      >
-        Starten
-      </Button>
     </>
   );
 }

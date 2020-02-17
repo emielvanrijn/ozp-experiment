@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import AcceptTermsPage from "./pages/AcceptTermsPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import DestinationPage from "./pages/DestinationPage.jsx";
@@ -15,26 +15,41 @@ import SubscriptionConfirmationPage from "./pages/SubscriptionConfirmationPage.j
 import Button from "react-bootstrap/Button";
 
 export default function PageRouter() {
-  const [currentPage, setPage] = useState(0);
-  const { condition } = useContext(DataContext);
+  const { condition, currentPage, setPage } = useContext(DataContext);
 
   const nextPage = () => setPage(currentPage + 1);
   const prevPage = () => setPage(currentPage - 1);
 
-  return <>
-    {currentPage >= 1 ? <div className="banner">
-      <div className="banner__back-button--container">
-        <Button className="button banner__back-button" disabled={currentPage < 2 || (currentPage >= 4 && currentPage < 6)} onClick={prevPage}>{"<"}</Button>
+  return (
+    <>
+      {currentPage >= 1 ? (
+        <div className="banner">
+          <div className="banner__back-button--container">
+            <Button
+              className="button banner__back-button"
+              disabled={
+                currentPage < 2 || (currentPage >= 4 && currentPage < 6)
+              }
+              onClick={prevPage}
+            >
+              {"<"}
+            </Button>
+          </div>
+          <div className="banner__content">Treinreisvergelijker.nl</div>
+          <div className="banner__logo--container">
+            <img
+              className="banner__logo"
+              src="/images/train-logo.png"
+              alt="Trein-Logo"
+            />
+          </div>
+        </div>
+      ) : null}
+      <div className="content">
+        {renderPage(currentPage, nextPage, condition)}
       </div>
-      <div className="banner__content">Treinreisvergelijker.nl</div>
-      <div className="banner__logo--container">
-        <img className="banner__logo" src="/images/train-logo.png" alt="Trein-Logo" />
-      </div>
-    </div> : null}
-    <div className="content">
-      {renderPage(currentPage, nextPage, condition)}
-    </div>
-  </>
+    </>
+  );
 }
 
 function renderPage(currentPage, nextPage, condition) {
@@ -55,8 +70,8 @@ function renderPage(currentPage, nextPage, condition) {
       ) : condition === 2 ? (
         <AlternativeActiveEntertainment nextPage={nextPage} />
       ) : (
-              <div className="errpr">Error</div> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
-            );
+        <div className="errpr">Error</div> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
+      );
     case 5:
       return <DealSelectionPage nextPage={nextPage} />;
     case 6:
