@@ -70,7 +70,7 @@ function renderPage(currentPage, nextPage, condition) {
       ) : condition === 2 ? (
         <AlternativeActiveEntertainment nextPage={nextPage} />
       ) : (
-        <div className="errpr">Error</div> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
+        <div className="error">Error</div> // soort van default case hier, misschien nog error-page toevoegen, maar redelijk 'veilig'.
       );
     case 5:
       return <DealSelectionPage nextPage={nextPage} />;

@@ -1,7 +1,7 @@
 [
   {
     "type": "milieu",
-    "title": "Meest milieubewust reizen",
+    "title": "Milieubewust reizen",
     "price_factor": 1,
     "co2_factor": 0.8,
     "traveltime_factor": 0.9
