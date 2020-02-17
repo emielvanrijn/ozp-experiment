@@ -8,7 +8,7 @@ export default function ThankyouPage({ nextPage }) {
 
   useEffect(() => {
     addData({ thankyou: Date.now() });
-  }, [])
+  }, []);
 
   return (
     <>
@@ -18,6 +18,9 @@ export default function ThankyouPage({ nextPage }) {
           blijven van de resultaten van dit onderzoek, dan kun je hier je
           e-mailadres achterlaten!
         </p>
+        <center>
+          <em>Je e-mailadres zal los van de data verwerkt worden</em>
+        </center>
         <input
           className="email-input"
           type="email"
@@ -28,7 +31,10 @@ export default function ThankyouPage({ nextPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => nextPage()}
+        onClick={() => {
+          addData({ email });
+          nextPage();
+        }}
         disabled={email === "" ? true : false}
       >
         Aanmelden

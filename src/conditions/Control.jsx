@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import config from "../config.json";
 import { ProgressBar, Card } from "react-bootstrap";
 import { addData } from "../stitch.js";
+import DataContext from "../context.js";
 
 export default function Control({ nextPage }) {
   const [progressBarFill, setProgressBarFill] = useState(0);
 
+  const { destination, occupation, preference } = useContext(DataContext);
+
   useEffect(() => {
-    addData({ conditionType: "control", conditionTime: Date.now() });
+    addData({
+      occupation,
+      preference,
+      destination: destination.name,
+      conditionType: "control",
+      conditionTime: Date.now()
+    });
     let counter = 0;
     const interval = setInterval(() => {
       if (counter === 100) {
@@ -29,6 +38,7 @@ export default function Control({ nextPage }) {
         setProgressBarFill(counter);
       }
     }, (config.waitTimeInMilliseconds + (config.correctionTime - 1000)) / 51);
+    //eslint-disable-next-line
   }, [nextPage]);
 
   return (

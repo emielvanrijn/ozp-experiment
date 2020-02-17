@@ -7,12 +7,22 @@ import ScratchCard from "../components/ScratchCard.jsx";
 import DataContext from "../context.js";
 
 export default function AlternativeActiveEntertainment({ nextPage }) {
-  const { destination, setStartDrawing, setFinishDrawing } = useContext(
-    DataContext
-  );
+  const {
+    destination,
+    setStartDrawing,
+    setFinishDrawing,
+    occupation,
+    preference
+  } = useContext(DataContext);
 
   useEffect(() => {
-    addData({ conditionType: "active", conditionTime: Date.now() });
+    addData({
+      occupation,
+      preference,
+      destination: destination.name,
+      conditionType: "active",
+      conditionTime: Date.now()
+    });
     setTimeout(() => {
       nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);

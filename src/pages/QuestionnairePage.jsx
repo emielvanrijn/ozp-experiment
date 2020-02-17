@@ -35,21 +35,19 @@ export default function QuestionnairePage({ nextPage }) {
 
   useEffect(() => {
     addData({ questionnaire: Date.now() });
-  }, [])
+  }, []);
 
   return (
     <>
       <Card className="card flex">
-        <p className="question-label">Wat vond je van de wachttijd?</p>
         <ButtonGroupWithOptions
+          label="Wat vond je van de wachttijd?"
           variable={wachtPerceptie}
           setVariable={setWachtPerceptie}
           options={wachtPerceptieOptions}
         />
-        <p className="question-label">
-          Hoeveel seconden denk je gewacht te hebben?
-        </p>
         <ButtonGroupWithOptions
+          label="Hoeveel seconden denk je gewacht te hebben?"
           variable={wachtTijdSchatting}
           setVariable={setWachtTijdSchatting}
           options={wachtTijdSchattingOptions}
@@ -58,7 +56,10 @@ export default function QuestionnairePage({ nextPage }) {
       <Button
         variant="success"
         className="button"
-        onClick={() => nextPage()}
+        onClick={() => {
+          addData({ wachtPerceptie, wachtTijdSchatting });
+          nextPage();
+        }}
       >
         Afronden
       </Button>
@@ -66,20 +67,24 @@ export default function QuestionnairePage({ nextPage }) {
   );
 }
 
-function ButtonGroupWithOptions({ variable, setVariable, options }) {
+function ButtonGroupWithOptions({ label, variable, setVariable, options }) {
   return (
-    <div className="questionnaire-grid">
-      {options.map((option, index) => (
-        <div
-          key={index}
-          className={
-            "questionnaire-grid-item " + (variable === option ? "selected" : "")
-          }
-          onClick={() => setVariable(option)}
-        >
-          {option}
-        </div>
-      ))}
-    </div>
+    <>
+      <p className="question-label">{label}</p>
+      <div className="questionnaire-grid">
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={
+              "questionnaire-grid-item " +
+              (variable === option ? "selected" : "")
+            }
+            onClick={() => setVariable(option)}
+          >
+            {option}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

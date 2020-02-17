@@ -1,21 +1,24 @@
 import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-// import Button from "react-bootstrap/Button";
-// import Spinner from "react-bootstrap/Spinner";
 import config from "../config.json";
 import DataContext from "../context.js";
 import { addData } from "../stitch.js";
 
 export default function PassiveEntertainment({ nextPage }) {
-  const { destination } = useContext(DataContext);
+  const { destination, occupation, preference } = useContext(DataContext);
 
-  //const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   useEffect(() => {
-    addData({ conditionType: "passive", conditionTime: Date.now() });
+    addData({
+      occupation,
+      preference,
+      destination: destination.name,
+      conditionType: "passive",
+      conditionTime: Date.now()
+    });
     setTimeout(() => {
-      // setIsButtonEnabled(true);
       nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);
+    //eslint-disable-next-line
   }, [nextPage]);
 
   return (
