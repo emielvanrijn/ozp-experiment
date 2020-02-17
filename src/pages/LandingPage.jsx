@@ -32,13 +32,13 @@ export default function LandingPage({ nextPage }) {
           </div>
           <div
             className="landingpage__city"
-            style={{ backgroundImage: "url(../images/Londen.jpg)" }}
+            style={{ backgroundImage: "url(../images/londen.jpg)" }}
           >
             Londen
           </div>
           <div
             className="landingpage__city"
-            style={{ backgroundImage: "url(../images/Parijs.jpg)" }}
+            style={{ backgroundImage: "url(../images/parijs.jpg)" }}
           >
             Parijs
           </div>

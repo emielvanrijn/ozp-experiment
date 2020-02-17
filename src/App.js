@@ -12,7 +12,7 @@ function App() {
   const [preference, setPreference] = useState(null);
   const [startDrawing, setStartDrawing] = useState(null);
   const [finishDrawing, setFinishDrawing] = useState(null);
-  const [currentPage, setPage] = useState(1);
+  const [currentPage, setPage] = useState(0);
 
   const value = {
     currentPage,
