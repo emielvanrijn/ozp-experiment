@@ -6,10 +6,12 @@ import { /*getCounter*/ initDB } from "./stitch";
 
 function App() {
   const [destination, setDestination] = useState(null);
-  const [counter /*setCounter*/] = useState(0); //TODO: terugzetten naar null
-  const [condition /*setCondition*/] = useState(0); //TODO: terugzetten naar null
+  const [counter /*setCounter*/] = useState(12); //TODO: terugzetten naar null
+  const [condition /*setCondition*/] = useState(2); //TODO: terugzetten naar null
   const [occupation, setOccupation] = useState(null);
   const [preference, setPreference] = useState(null);
+  const [startDrawing, setStartDrawing] = useState(null);
+  const [finishDrawing, setFinishDrawing] = useState(null);
 
   const value = {
     destination,
@@ -19,7 +21,11 @@ function App() {
     occupation,
     setOccupation,
     preference,
-    setPreference
+    setPreference,
+    startDrawing,
+    setStartDrawing,
+    finishDrawing,
+    setFinishDrawing
   };
 
   useEffect(() => {

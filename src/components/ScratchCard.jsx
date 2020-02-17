@@ -87,7 +87,7 @@ class ScratchCard extends Component {
   handleMouseDown(e) {
     this.isDrawing = true;
     this.lastPoint = this.getMouse(e, this.canvas);
-    this.props.setStartDrawing(Date.now());
+    this.props.setStartDrawing();
   }
 
   handleMouseMove(e) {
@@ -118,7 +118,6 @@ class ScratchCard extends Component {
 
   handleMouseUp() {
     this.isDrawing = false;
-    this.props.setFinishDrawing(Date.now());
   }
 
   render() {

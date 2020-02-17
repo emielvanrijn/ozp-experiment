@@ -4,35 +4,35 @@
     "baseprice": 60,
     "distance": 650,
     "co2train": 50,
-    "co2plane": 190,
     "traveltime": 240,
-    "image": "../images/berlijn.jpg"
+    "image": "../images/berlijn.jpg",
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
   },
   {
     "name": "Brussel",
     "baseprice": 40,
     "distance": 200,
     "co2train": 20,
-    "co2plane": 50,
     "traveltime": 110,
-    "image": "../images/brussel.jpg"
+    "image": "../images/brussel.jpg",
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
   },
   {
     "name": "Parijs",
     "baseprice": 50,
     "distance": 500,
     "co2train": 40,
-    "co2plane": 130,
     "traveltime": 210,
-    "image": "../images/parijs.jpg"
+    "image": "../images/parijs.jpg",
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
   },
   {
     "name": "Londen",
     "baseprice": 50,
     "distance": 600,
     "co2train": 50,
-    "co2plane": 120,
     "traveltime": 280,
-    "image": "../images/londen.jpg"
+    "image": "../images/londen.jpg",
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
   }
 ]

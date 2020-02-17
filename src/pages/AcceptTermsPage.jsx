@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useContext } from "react";
 import DataContext from "../context";
 
 export default function AcceptTermsPage({ nextPage }) {
@@ -17,11 +16,7 @@ export default function AcceptTermsPage({ nextPage }) {
         <p>[VERDERE TERMS EN COND.]</p>
       </Card>
       <Card>Aantal deelnemers tot nu toe: {counter}</Card>
-      <Button
-        variant="success"
-        className="button"
-        onClick={nextPage}
-      >
+      <Button variant="success" className="button" onClick={nextPage}>
         Accepteer en ga door met onderzoek
       </Button>
     </>

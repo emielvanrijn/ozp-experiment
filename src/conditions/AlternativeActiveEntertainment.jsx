@@ -7,7 +7,9 @@ import ScratchCard from "../components/ScratchCard.jsx";
 import DataContext from "../context.js";
 
 export default function AlternativeActiveEntertainment({ nextPage }) {
-  const { destination } = useContext(DataContext);
+  const { destination, setStartDrawing, setFinishDrawing } = useContext(
+    DataContext
+  );
 
   useEffect(() => {
     addData({ conditionType: "active", conditionTime: Date.now() });
@@ -20,7 +22,10 @@ export default function AlternativeActiveEntertainment({ nextPage }) {
     width: 320,
     height: 240,
     image: destination.image,
-    finishPercent: 80
+    finishPercent: 75,
+    onComplete: () => {
+      setFinishDrawing(Date.now());
+    }
   };
 
   return (
@@ -33,9 +38,12 @@ export default function AlternativeActiveEntertainment({ nextPage }) {
           </p>
           <p className="attention-text">
             Kras de foto hieronder voor een leuk weetje over
-            {destination.name}!
+            {` ${destination.name}`}!
           </p>
-          <ScratchCard {...settings}>
+          <ScratchCard
+            {...settings}
+            setStartDrawing={() => setStartDrawing(Date.now())}
+          >
             <div className="centered-contents">
               <p>{destination.shortFact16}</p>
             </div>
