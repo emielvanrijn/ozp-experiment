@@ -6,12 +6,17 @@ import DataContext from "../context";
 import { getTimeString } from "../helpers";
 
 export default function DealSelectionPage({ nextPage }) {
-  const { preference, destination } = useContext(DataContext);
+  const { preference, destination, startDrawing, finishDrawing } = useContext(
+    DataContext
+  );
 
   useEffect(() => {
-    addData({ deal_selection: Date.now() });
-  }, [])
-
+    addData({
+      startDrawing: startDrawing,
+      finishDrawing: finishDrawing,
+      deal_selection: Date.now()
+    });
+  }, [startDrawing, finishDrawing]);
 
   const preferredDeal = deals.filter(deal => deal.type === preference)[0];
   const remainingDeals = deals.filter(deal => deal.type !== preference);

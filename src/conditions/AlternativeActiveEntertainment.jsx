@@ -16,7 +16,8 @@ export default function AlternativeActiveEntertainment({ nextPage }) {
     setTimeout(() => {
       nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);
-  }, [nextPage]);
+    // eslint-disable-next-line
+  }, []);
 
   const settings = {
     width: 320,

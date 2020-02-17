@@ -95,8 +95,6 @@ class ScratchCard extends Component {
       return;
     }
 
-    e.preventDefault();
-
     const currentPoint = this.getMouse(e, this.canvas);
     const distance = this.distanceBetween(this.lastPoint, currentPoint);
     const angle = this.angleBetween(this.lastPoint, currentPoint);
