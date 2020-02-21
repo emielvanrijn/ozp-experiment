@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
+import DataContext from "../context";
 
-export default function QuestionnairePage({ nextPage }) {
+export default function QuestionnairePage() {
+  const {
+    nextPage,
+    setCurrentPage,
+    currentRound,
+    setCurrentRound,
+    id
+  } = useContext(DataContext);
+
   const [wachtPerceptie, setWachtPerceptie] = useState(null);
   const [wachtTijdSchatting, setWachtTijdSchatting] = useState(null);
 
@@ -34,12 +43,23 @@ export default function QuestionnairePage({ nextPage }) {
   ];
 
   useEffect(() => {
-    addData({ questionnaire: Date.now() });
+    addData({ ["questionnaire_" + currentRound.toString()]: Date.now() }, id);
+    //eslint-disable-next-line
   }, []);
+
+  const startNewRound = () => {
+    setCurrentPage(1);
+    setCurrentRound(2);
+  };
 
   return (
     <>
       <Card className="card flex">
+        <p>
+          Bedankt voor het bestellen via Treinreisvergelijker.nl, hieronder
+          volgen een aantal vragen over hoe je dit ervaren hebt.
+        </p>
+        <hr />
         <ButtonGroupWithOptions
           label="Wat vond je van de wachttijd?"
           variable={wachtPerceptie}
@@ -57,11 +77,19 @@ export default function QuestionnairePage({ nextPage }) {
         variant="success"
         className="button"
         onClick={() => {
-          addData({ wachtPerceptie, wachtTijdSchatting });
-          nextPage();
+          addData(
+            {
+              ["wachttijd_perceptie_" +
+              currentRound.toString()]: wachtPerceptie,
+              ["wachttijd_schatting_" +
+              currentRound.toString()]: wachtTijdSchatting
+            },
+            id
+          );
+          currentRound === 1 ? startNewRound() : nextPage();
         }}
       >
-        Afronden
+        {currentRound === 1 ? "Volgende opdracht" : "Afronden"}
       </Button>
     </>
   );

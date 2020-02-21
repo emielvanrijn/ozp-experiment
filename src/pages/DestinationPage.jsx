@@ -5,12 +5,15 @@ import { addData } from "../stitch";
 import cities from "../cities.json";
 import { getTimeString } from "../helpers";
 
-export default function DestinationPage({ nextPage }) {
-  const { setDestination } = useContext(DataContext);
+export default function DestinationPage() {
+  const { setDestination, nextPage, currentRound, id } = useContext(
+    DataContext
+  );
 
   useEffect(() => {
-    addData({ destination: Date.now() });
-  }, [])
+    addData({ ["destination_" + currentRound.toString()]: Date.now() }, id);
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <>
@@ -53,7 +56,13 @@ function CityCard({ city, nextPage, setDestination }) {
           <img src={city.image} alt="city" className="city-image" />
         </div>
       </div>
-      <div className="right-chevron">></div>
+      <div className="chevron__container">
+        <img
+          className="chevron__icon"
+          src="/images/chevron.png"
+          alt="chevron"
+        />
+      </div>
     </Card>
   );
 }

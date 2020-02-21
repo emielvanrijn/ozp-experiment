@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
+import DataContext from "../context";
 
-export default function ThankyouPage({ nextPage }) {
+export default function ThankyouPage() {
+  const { nextPage, id } = useContext(DataContext);
+
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    addData({ thankyou: Date.now() });
+    addData({ thankyou: Date.now() }, id);
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -18,9 +22,15 @@ export default function ThankyouPage({ nextPage }) {
           blijven van de resultaten van dit onderzoek, dan kun je hier je
           e-mailadres achterlaten!
         </p>
+        <p>
+          Mocht je geen updates willen ontvangen, dan kun je dit scherm nu
+          gewoon afsluiten
+        </p>
+        <div className="spacing"></div>
         <center>
           <em>Je e-mailadres zal los van de data verwerkt worden</em>
         </center>
+        <div className="spacing"></div>
         <input
           className="email-input"
           type="email"
@@ -32,7 +42,7 @@ export default function ThankyouPage({ nextPage }) {
         variant="success"
         className="button"
         onClick={() => {
-          addData({ email });
+          addData({ email }, id);
           nextPage();
         }}
         disabled={email === "" ? true : false}

@@ -6,23 +6,29 @@ import { useEffect } from "react";
 import ScratchCard from "../components/ScratchCard.jsx";
 import DataContext from "../context.js";
 
-export default function AlternativeActiveEntertainment({ nextPage }) {
+export default function AlternativeActiveEntertainment() {
   const {
     destination,
     setStartDrawing,
     setFinishDrawing,
     occupation,
-    preference
+    preference,
+    nextPage,
+    currentRound,
+    id
   } = useContext(DataContext);
 
   useEffect(() => {
-    addData({
-      occupation,
-      preference,
-      destination: destination.name,
-      conditionType: "active",
-      conditionTime: Date.now()
-    });
+    addData(
+      {
+        ["occupation_" + currentRound.toString()]: occupation,
+        ["preference_" + currentRound.toString()]: preference,
+        ["destination_" + currentRound.toString()]: destination.name,
+        ["condition_type_" + currentRound.toString()]: "active",
+        ["condition_time_" + currentRound.toString()]: Date.now()
+      },
+      id
+    );
     setTimeout(() => {
       nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);
@@ -45,7 +51,6 @@ export default function AlternativeActiveEntertainment({ nextPage }) {
         <div className="centered-contents">
           <p>
             <em>Terwijl wij zoeken...</em>
-            <br />
           </p>
           <p className="attention-text">
             Kras de foto hieronder voor een leuk weetje over

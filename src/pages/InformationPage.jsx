@@ -5,17 +5,21 @@ import { addData } from "../stitch";
 import DataContext from "../context";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-export default function InformationPage({ nextPage }) {
+export default function InformationPage() {
   const {
     occupation,
     setOccupation,
     preference,
-    setPreference
+    setPreference,
+    nextPage,
+    currentRound,
+    id
   } = useContext(DataContext);
 
   useEffect(() => {
-    addData({ information: Date.now() });
-  }, [])
+    addData({ ["information_" + currentRound.toString()]: Date.now() }, id);
+    //eslint-disable-next-line
+  }, []);
   return (
     <>
       <Card className="card flex">
@@ -23,7 +27,8 @@ export default function InformationPage({ nextPage }) {
           Om de beste deal voor jou te kunnen vinden, hebben we de volgende
           informatie van je nodig...
         </p>
-        Ik ben:
+        <div className="spacing"></div>
+        <p>Ik ben:</p>
         <ButtonGroup>
           <Button
             className={
@@ -52,8 +57,9 @@ export default function InformationPage({ nextPage }) {
             Werkende
           </Button>
         </ButtonGroup>
-        <br />
-        Ik geef de meeste voorkeur aan:
+        <div className="spacing"></div>
+        <div className="spacing"></div>
+        <p>Ik geef de meeste voorkeur aan:</p>
         <ButtonGroup>
           <Button
             className={
@@ -82,8 +88,6 @@ export default function InformationPage({ nextPage }) {
             Reistijd
           </Button>
         </ButtonGroup>
-        <br />
-        <p>[HIER KOMT NOG EEN CRITERIUM]</p>
       </Card>
       <Button
         variant="success"

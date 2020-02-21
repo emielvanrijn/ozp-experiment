@@ -6,7 +6,8 @@
     "co2train": 50,
     "traveltime": 240,
     "image": "../images/berlijn.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
+    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
   },
   {
     "name": "Brussel",
@@ -15,7 +16,8 @@
     "co2train": 20,
     "traveltime": 110,
     "image": "../images/brussel.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
+    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
   },
   {
     "name": "Parijs",
@@ -24,7 +26,8 @@
     "co2train": 40,
     "traveltime": 210,
     "image": "../images/parijs.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
+    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
   },
   {
     "name": "Londen",
@@ -33,6 +36,7 @@
     "co2train": 50,
     "traveltime": 280,
     "image": "../images/londen.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!"
+    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
+    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
   }
 ]

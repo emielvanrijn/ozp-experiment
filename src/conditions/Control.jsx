@@ -4,26 +4,36 @@ import { ProgressBar, Card } from "react-bootstrap";
 import { addData } from "../stitch.js";
 import DataContext from "../context.js";
 
-export default function Control({ nextPage }) {
+export default function Control() {
   const [progressBarFill, setProgressBarFill] = useState(0);
 
-  const { destination, occupation, preference } = useContext(DataContext);
+  const {
+    destination,
+    occupation,
+    preference,
+    nextPage,
+    currentRound,
+    id
+  } = useContext(DataContext);
 
   useEffect(() => {
-    addData({
-      occupation,
-      preference,
-      destination: destination.name,
-      conditionType: "control",
-      conditionTime: Date.now()
-    });
+    addData(
+      {
+        ["occupation_" + currentRound.toString()]: occupation,
+        ["preference_" + currentRound.toString()]: preference,
+        ["destination_" + currentRound.toString()]: destination.name,
+        ["condition_type_" + currentRound.toString()]: "control",
+        ["condition_time_" + currentRound.toString()]: Date.now()
+      },
+      id
+    );
     let counter = 0;
     const interval = setInterval(() => {
       if (counter === 100) {
         clearInterval(interval);
         setTimeout(() => {
           nextPage();
-        }, 1000); // nodig om de animatie 'bij' te krijgen, wordt verderop van correctiontime afgetrokken
+        }, 750); // nodig om de animatie 'bij' te krijgen, wordt verderop van correctiontime afgetrokken
       }
       if (counter >= 82 && counter < 100) {
         counter += 1; // 18x
@@ -37,9 +47,9 @@ export default function Control({ nextPage }) {
         counter += 3; // 16x
         setProgressBarFill(counter);
       }
-    }, (config.waitTimeInMilliseconds + (config.correctionTime - 1000)) / 51);
+    }, (config.waitTimeInMilliseconds + (config.correctionTime - 750)) / 51);
     //eslint-disable-next-line
-  }, [nextPage]);
+  }, []);
 
   return (
     <Card className="card flex centered-contents">

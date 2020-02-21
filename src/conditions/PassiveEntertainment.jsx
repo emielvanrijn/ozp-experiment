@@ -4,22 +4,32 @@ import config from "../config.json";
 import DataContext from "../context.js";
 import { addData } from "../stitch.js";
 
-export default function PassiveEntertainment({ nextPage }) {
-  const { destination, occupation, preference } = useContext(DataContext);
+export default function PassiveEntertainment() {
+  const {
+    destination,
+    occupation,
+    preference,
+    nextPage,
+    currentRound,
+    id
+  } = useContext(DataContext);
 
   useEffect(() => {
-    addData({
-      occupation,
-      preference,
-      destination: destination.name,
-      conditionType: "passive",
-      conditionTime: Date.now()
-    });
+    addData(
+      {
+        ["occupation_" + currentRound.toString()]: occupation,
+        ["preference_" + currentRound.toString()]: preference,
+        ["destination_" + currentRound.toString()]: destination.name,
+        ["condition_type_" + currentRound.toString()]: "passive",
+        ["condition_time_" + currentRound.toString()]: Date.now()
+      },
+      id
+    );
     setTimeout(() => {
       nextPage();
     }, config.waitTimeInMilliseconds + config.correctionTime);
     //eslint-disable-next-line
-  }, [nextPage]);
+  }, []);
 
   return (
     <>
@@ -28,7 +38,7 @@ export default function PassiveEntertainment({ nextPage }) {
           <p>
             <em>Terwijl wij zoeken...</em>
           </p>
-          <p>{destination.longFact}</p>
+          <p>{destination.longFact44}</p>
         </div>
       </Card>
     </>

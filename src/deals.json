@@ -8,14 +8,14 @@
   },
   {
     "type": "goedkoop",
-    "title": "Goedkoopst reizen",
+    "title": "Goedkoop reizen",
     "price_factor": 0.8,
     "co2_factor": 0.9,
     "traveltime_factor": 1
   },
   {
     "type": "reistijd",
-    "title": "Snelst reizen",
+    "title": "Snel reizen",
     "price_factor": 0.9,
     "co2_factor": 1,
     "traveltime_factor": 0.8

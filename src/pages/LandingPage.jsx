@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
+import DataContext from "../context";
 
-export default function LandingPage({ nextPage }) {
+export default function LandingPage() {
+  const { nextPage, currentRound, id } = useContext(DataContext);
+
   useEffect(() => {
-    addData({ landing: Date.now() });
+    addData({ ["landing_" + currentRound.toString()]: Date.now() }, id);
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -16,7 +20,10 @@ export default function LandingPage({ nextPage }) {
         </div>
       </div>
       <Card className="card">
-        <p>Op dit moment bieden wij aan om te zoeken naar treinreizen naar:</p>
+        <p>
+          Op dit moment bieden wij aan om te zoeken naar treinreizen met als
+          bestemming:
+        </p>
         <div className="landingpage__cities">
           <div
             className="landingpage__city"
@@ -43,7 +50,7 @@ export default function LandingPage({ nextPage }) {
             Parijs
           </div>
         </div>
-        <br />
+        <div className="spacing"></div>
         <center>
           <em>Waar gaat jouw volgende reis naartoe?</em>
         </center>

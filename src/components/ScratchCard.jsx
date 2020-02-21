@@ -106,7 +106,7 @@ class ScratchCard extends Component {
       y = this.lastPoint.y + Math.cos(angle) * i;
       this.ctx.globalCompositeOperation = "destination-out";
       this.ctx.beginPath();
-      this.ctx.arc(x, y, 32, 0, 2 * Math.PI, false);
+      this.ctx.arc(x, y, 28, 0, 2 * Math.PI, false);
       this.ctx.fill();
     }
 
