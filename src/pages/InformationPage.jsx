@@ -22,7 +22,7 @@ export default function InformationPage() {
   }, []);
   return (
     <>
-      <Card className="card flex">
+      <Card className="card flex" style={{ padding: "0.5rem" }}>
         <p>
           Om de beste deal voor jou te kunnen vinden, hebben we de volgende
           informatie van je nodig...

@@ -20,14 +20,12 @@ export default function PageRouter() {
 
   return (
     <>
-      {currentPage >= 2 ? (
+      {currentPage >= 2 && currentPage !== 5 ? (
         <div className="banner">
           <div className="banner__back-button--container">
             <Button
               className="button banner__back-button"
-              disabled={
-                currentPage < 3 || (currentPage >= 5 && currentPage < 7)
-              }
+              disabled={currentPage < 3 || currentPage !== 6}
               onClick={prevPage}
             >
               {"<"}
@@ -43,7 +41,7 @@ export default function PageRouter() {
           </div>
         </div>
       ) : null}
-      <div className="content">{renderPage(currentPage, condition)}</div>
+      <div className="page-content">{renderPage(currentPage, condition)}</div>
     </>
   );
 }

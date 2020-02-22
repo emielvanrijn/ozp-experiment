@@ -34,8 +34,8 @@ export default function AcceptTermsPage() {
         en neer totdat de adresbalk verschijnt en de gele balk verdwijnt. Hierna
         zou scrollen niet meer mogelijk moeten zijn.
       </p>
-      <div className="spacing"></div>
       <button
+        style={{ marginBottom: "0.5rem" }}
         onClick={() => {
           setCondition(0);
           nextPage();
@@ -43,8 +43,8 @@ export default function AcceptTermsPage() {
       >
         Controle
       </button>
-      <div className="spacing"></div>
       <button
+        style={{ marginBottom: "0.5rem" }}
         onClick={() => {
           setCondition(1);
           nextPage();
@@ -52,7 +52,6 @@ export default function AcceptTermsPage() {
       >
         Passief
       </button>
-      <div className="spacing"></div>
       <button
         onClick={() => {
           setCondition(2);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DataContext from "./context";
 import PageRouter from "./PageRouter";
 import "./App.scss";
@@ -7,7 +7,7 @@ function App() {
   const [id, setId] = useState(null);
   const [destination, setDestination] = useState(null);
   const [deal, setDeal] = useState(null);
-  const [counter, setCounter] = useState(null);
+  const [counter /*setCounter*/] = useState(null);
   const [condition, setCondition] = useState(0);
   const [occupation, setOccupation] = useState(null);
   const [preference, setPreference] = useState(null);

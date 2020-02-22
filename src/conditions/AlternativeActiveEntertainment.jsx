@@ -53,7 +53,7 @@ export default function AlternativeActiveEntertainment() {
             <em>Terwijl wij zoeken...</em>
           </p>
           <p className="attention-text">
-            Kras de foto hieronder voor een leuk weetje over
+            Kras de foto hieronder voor een weetje over
             {` ${destination.name}`}!
           </p>
           <ScratchCard

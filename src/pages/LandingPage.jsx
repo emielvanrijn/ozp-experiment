@@ -52,9 +52,10 @@ export default function LandingPage() {
         </div>
         <div className="spacing"></div>
         <center>
-          <em>Waar gaat jouw volgende reis naartoe?</em>
+          <p>
+            <em>Waar gaat jouw volgende reis naartoe?</em>
+          </p>
         </center>
-        <br />
         <Button variant="success" className="button" onClick={() => nextPage()}>
           Start jouw zoektocht!
         </Button>
