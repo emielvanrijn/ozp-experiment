@@ -47,8 +47,8 @@ class ScratchCard extends Component {
   }
 
   getMouse(e, canvas) {
-    let offsetX = 0;
-    let offsetY = 0;
+    let offsetX = 32;
+    let offsetY = 24;
     let mx, my;
 
     if (canvas.offsetParent !== undefined) {
