@@ -4,7 +4,7 @@ import config from "../config.json";
 import { addData } from "../stitch.js";
 import { useEffect } from "react";
 import ScratchCard from "../components/ScratchCard.jsx";
-import DataContext from "../context.js";
+import GlobalState from "../GlobalState.js";
 
 export default function AlternativeActiveEntertainment() {
   const {
@@ -16,7 +16,7 @@ export default function AlternativeActiveEntertainment() {
     nextPage,
     currentRound,
     id
-  } = useContext(DataContext);
+  } = useContext(GlobalState);
 
   useEffect(() => {
     addData(
@@ -47,8 +47,8 @@ export default function AlternativeActiveEntertainment() {
 
   return (
     <>
-      <Card className="card flex">
-        <div className="centered-contents">
+      <Card className="card flex centered-contents">
+        <center style={{ flex: 1 }}>
           <p>
             <em>Terwijl wij zoeken...</em>
           </p>
@@ -56,13 +56,13 @@ export default function AlternativeActiveEntertainment() {
             Kras de foto hieronder voor een weetje over
             {` ${destination.name}`}!
           </p>
+        </center>
+        <div className="centered-contents">
           <ScratchCard
             {...settings}
             setStartDrawing={() => setStartDrawing(Date.now())}
           >
-            <div className="centered-contents">
-              <p>{destination.shortFact16}</p>
-            </div>
+            <p>{destination.shortFact16}</p>
           </ScratchCard>
         </div>
       </Card>

@@ -1,26 +1,46 @@
 import React, { useContext } from "react";
-import DataContext from "../context";
+import GlobalState from "../GlobalState";
 
 export default function StudyIntroductionPage() {
-  const { nextPage, currentRound } = useContext(DataContext);
+  const { nextPage, currentRound } = useContext(GlobalState);
 
   return (
     <div className="intro">
       <div className="flex">
-        <p>
-          {currentRound === 1 ? instructions[0] : instructions[1]}
-          <strong>{currentRound === 1 ? cities[0] : cities[1]}</strong>
-        </p>
+        {currentRound === 1 ? (
+          <>
+            <center style={{ color: "red" }}>
+              <p>Lees a.u.b. de volgende informatie volledig!</p>
+            </center>
+            <p>
+              In dit experiment zul je <em>tweemaal</em> een treinreis boeken
+              naar een europese stad door middel van de website
+              Treinreisstunter.nl. Deze website zoekt op basis van twee criteria
+              verschillende websites af naar de beste deals, die je ook meteen
+              via die website kunt boeken.
+            </p>
+            <p>Eerst vragen we je om een treinreis te boeken naar:</p>
+            <center>
+              <p>
+                <strong>Parijs</strong>
+              </p>
+            </center>
+          </>
+        ) : (
+          <>
+            <p>
+              We zijn al op de helft! Nu vragen we je om nog een keer een reis
+              te boeken, dit keer naar:{" "}
+            </p>
+            <center>
+              <p>
+                <strong>Berlijn</strong>
+              </p>
+            </center>
+          </>
+        )}
       </div>
-      <div className="spacing"></div>
       <button onClick={() => nextPage()}>Starten</button>
     </div>
   );
 }
-
-const instructions = [
-  "We vragen je om een ticket te bestellen naar: ",
-  "We zijn al op de helft! Nu vragen we je om nog een keer een ticket te bestellen, dit keer naar: "
-];
-
-const cities = ["Londen", "Berlijn"];

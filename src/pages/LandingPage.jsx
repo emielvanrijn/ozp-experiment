@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
-import DataContext from "../context";
+import GlobalState from "../GlobalState";
+import cities from "../cities.json";
 
 export default function LandingPage() {
-  const { nextPage, currentRound, id } = useContext(DataContext);
+  const { currentRound, id } = useContext(GlobalState);
 
   useEffect(() => {
     addData({ ["landing_" + currentRound.toString()]: Date.now() }, id);
@@ -16,50 +16,36 @@ export default function LandingPage() {
     <>
       <div className="landingpage__jumbotron">
         <div className="landingpage__jumbotron--content">
-          <span>Dé internationale treinreizenvergelijker van Nederland!</span>
+          <span>Dé internationale treinreisstunter van Nederland!</span>
         </div>
       </div>
       <Card className="card">
-        <p>
-          Op dit moment bieden wij aan om te zoeken naar treinreizen met als
-          bestemming:
-        </p>
+        <p>Op dit moment kun je via ons een reis boeken naar:</p>
         <div className="landingpage__cities">
-          <div
-            className="landingpage__city"
-            style={{ backgroundImage: "url(../images/berlijn.jpg)" }}
-          >
-            Berlijn
-          </div>
-          <div
-            className="landingpage__city"
-            style={{ backgroundImage: "url(../images/brussel.jpg)" }}
-          >
-            Brussel
-          </div>
-          <div
-            className="landingpage__city"
-            style={{ backgroundImage: "url(../images/londen.jpg)" }}
-          >
-            Londen
-          </div>
-          <div
-            className="landingpage__city"
-            style={{ backgroundImage: "url(../images/parijs.jpg)" }}
-          >
-            Parijs
-          </div>
+          {cities.map(city => (
+            <CityTile key={city.name} city={city} />
+          ))}
         </div>
-        <div className="spacing"></div>
-        <center>
-          <p>
-            <em>Waar gaat jouw volgende reis naartoe?</em>
-          </p>
-        </center>
-        <Button variant="success" className="button" onClick={() => nextPage()}>
-          Start jouw zoektocht!
-        </Button>
       </Card>
     </>
   );
 }
+
+const CityTile = ({ city }) => {
+  const { setDestination, nextPage } = useContext(GlobalState);
+
+  return (
+    <div
+      onClick={() => {
+        setDestination(city);
+        nextPage();
+      }}
+      className="landingpage__city"
+      style={{
+        backgroundImage: `url(../images/${city.name.toLowerCase()}.jpg`
+      }}
+    >
+      {city.name}
+    </div>
+  );
+};

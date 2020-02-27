@@ -2,15 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
-import DataContext from "../context";
+import GlobalState from "../GlobalState";
 
 export default function ThankyouPage() {
-  const { nextPage, id } = useContext(DataContext);
+  const { nextPage, id } = useContext(GlobalState);
 
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    addData({ thankyou: Date.now() }, id);
+    addData({ thankyou: Date.now(), completed: true });
     //eslint-disable-next-line
   }, []);
 
@@ -26,11 +26,11 @@ export default function ThankyouPage() {
           Mocht je geen updates willen ontvangen, dan kun je dit scherm nu
           gewoon afsluiten
         </p>
-        <div className="spacing"></div>
         <center>
-          <em>Je e-mailadres zal los van de data verwerkt worden</em>
+          <p>
+            <em>Je e-mailadres zal los van de data verwerkt worden</em>
+          </p>
         </center>
-        <div className="spacing"></div>
         <input
           className="email-input"
           type="email"

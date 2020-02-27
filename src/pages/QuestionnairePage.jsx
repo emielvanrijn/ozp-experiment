@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addData } from "../stitch";
-import DataContext from "../context";
+import GlobalState from "../GlobalState";
 
 export default function QuestionnairePage() {
   const {
@@ -11,7 +11,7 @@ export default function QuestionnairePage() {
     currentRound,
     setCurrentRound,
     id
-  } = useContext(DataContext);
+  } = useContext(GlobalState);
 
   const [wachtPerceptie, setWachtPerceptie] = useState(null);
   const [wachtTijdSchatting, setWachtTijdSchatting] = useState(null);
@@ -19,7 +19,7 @@ export default function QuestionnairePage() {
   const wachtPerceptieOptions = [
     "Heel kort",
     "Kort",
-    "Neutraal",
+    "Niet kort of lang",
     "Lang",
     "Heel lang"
   ];
@@ -55,27 +55,34 @@ export default function QuestionnairePage() {
   return (
     <>
       <Card className="card flex">
-        <p>
-          Bedankt voor het bestellen via Treinreisvergelijker.nl, hieronder
-          volgen een aantal vragen over hoe je dit ervaren hebt.
-        </p>
-        <hr />
-        <ButtonGroupWithOptions
-          label="Wat vond je van de wachttijd?"
-          variable={wachtPerceptie}
-          setVariable={setWachtPerceptie}
-          options={wachtPerceptieOptions}
-        />
-        <ButtonGroupWithOptions
-          label="Hoeveel seconden denk je gewacht te hebben?"
-          variable={wachtTijdSchatting}
-          setVariable={setWachtTijdSchatting}
-          options={wachtTijdSchattingOptions}
-        />
+        <div className="scrollable flex">
+          <p>
+            Bedankt voor het boeken van jouw treinreis via Treinreisstunter.nl,
+            hieronder volgen een aantal vragen over hoe je dit ervaren hebt.
+          </p>
+          <hr />
+          <center style={{ color: "red" }}>
+            Scroll goed door voor alle vragen!
+          </center>
+          <hr />
+          <ButtonGroupWithOptions
+            label="Wat vond je van de wachttijd?"
+            variable={wachtPerceptie}
+            setVariable={setWachtPerceptie}
+            options={wachtPerceptieOptions}
+          />
+          <ButtonGroupWithOptions
+            label="Hoeveel seconden denk je gewacht te hebben?"
+            variable={wachtTijdSchatting}
+            setVariable={setWachtTijdSchatting}
+            options={wachtTijdSchattingOptions}
+          />
+        </div>
       </Card>
       <Button
         variant="success"
         className="button"
+        disabled={!(wachtPerceptie && wachtTijdSchatting)}
         onClick={() => {
           addData(
             {

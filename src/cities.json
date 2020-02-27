@@ -6,8 +6,8 @@
     "co2train": 50,
     "traveltime": 240,
     "image": "../images/berlijn.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
-    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
+    "shortFact16": "Wist je dat Berlijn in totaal maarliefst 900 bruggen heeft? Dat is meer dan Venetië!",
+    "longFact44": "Wist je dat in Berlijn het grootste warenhuis van heel het Europese vasteland staat? Het zogenaamde ‘Kaufhaus des Westens’. Met 8 verdiepingen, 60.000 (!) vierkante meter oppervlakte en 64 liften kun je hier met recht een middagje shoppen. En daarna natuurlijk  heerlijke curryworst eten!"
   },
   {
     "name": "Brussel",
@@ -16,8 +16,8 @@
     "co2train": 20,
     "traveltime": 110,
     "image": "../images/brussel.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
-    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
+    "shortFact16": "Wist je dat Brussel naast de hoofdstad van België ook de hoofdstad van Europa is?",
+    "longFact44": "Wist je dat het totaalgewicht van het Atomium bij de constructie in 1958 maarliefst 2400 ton was? De hoogte van het Atomium is 102 meter en elke bol, die een atoom weergeeft heeft en diameter van 18 meter. De flexibele constructie laat beweging toe bij wind."
   },
   {
     "name": "Parijs",
@@ -26,8 +26,8 @@
     "co2train": 40,
     "traveltime": 210,
     "image": "../images/parijs.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
-    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
+    "shortFact16": "Wist je dat de Eiffeltoren in de winter maarliefst vier tot acht centimeter krimpt door de kou!",
+    "longFact44": "Wist je dat in Frankrijk niet wijn maar whisky het populairste alcoholische drankje is? En wist je dat croissants oorspronkelijk niet uit Frankrijk komen, maar uit Oostenrijk? En misschien relevanter voor jouw reis: het drukste treinstation van Europa is Station Gare du Nord."
   },
   {
     "name": "Londen",
@@ -36,7 +36,7 @@
     "co2train": 50,
     "traveltime": 280,
     "image": "../images/londen.jpg",
-    "shortFact16": "Wanneer je dit helemaal gelezen hebt (écht écht gelezen), dan mag je roepen: stop!",
-    "longFact44": "Hier komt binnenkort een mooi weetje over de stad die jij gekozen hebt. Tot die tijd kan ik je slechts blij maken met een leuk weetje over pandaberen, namelijk dat zij maarliefst 14 uur per dag besteden aan het eten van  34 kilo bamboe!"
+    "shortFact16": "Wist je dat Londen de meeste miljardairs (72) kent van alle steden in de wereld? ",
+    "longFact44": "Wist je dat de kortste afstand tussen 2 metrostations 260 meter is? Dit ritje kost ook nog eens meer dan vijf euro! Dit is natuurlijk geen enkel probleem voor de vele miljardairs (72) die in Londen wonen, meer dan in welke andere stad dan ook!"
   }
 ]

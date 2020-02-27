@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { addData } from "../stitch";
 import deals from "../deals.json";
-import DataContext from "../context";
+import GlobalState from "../GlobalState";
 import { getTimeString } from "../helpers";
 
 export default function DealSelectionPage() {
@@ -13,7 +13,7 @@ export default function DealSelectionPage() {
     finishDrawing,
     currentRound,
     id
-  } = useContext(DataContext);
+  } = useContext(GlobalState);
 
   useEffect(() => {
     addData(
@@ -31,20 +31,23 @@ export default function DealSelectionPage() {
   const remainingDeals = deals.filter(deal => deal.type !== preference);
 
   return (
-    <>
+    <div className="deal-selection">
       <h5>Voorkeursdeal</h5>
-      <DealCard deal={preferredDeal} destination={destination} />
-      <div className="spacing"></div>
+      <DealCard
+        deal={preferredDeal}
+        style={{ marginBottom: "2.5rem" }}
+        destination={destination}
+      />
       <h5>Andere deals</h5>
       {remainingDeals.map((deal, index) => (
         <DealCard key={index} deal={deal} destination={destination} />
       ))}
-    </>
+    </div>
   );
 }
 
-function DealCard({ deal, destination }) {
-  const { setDeal, nextPage } = useContext(DataContext);
+function DealCard({ deal, destination, style }) {
+  const { setDeal, nextPage } = useContext(GlobalState);
 
   function handleClick(nextPage) {
     setDeal(deal);
@@ -52,27 +55,31 @@ function DealCard({ deal, destination }) {
   }
 
   return (
-    <Card className="card deal" onClick={() => handleClick(nextPage)}>
-      <div>
-        <h6>{deal.title}</h6>
-        <div>
-          <div>Prijs: €{destination.baseprice * deal.price_factor + ",00"}</div>
-          <div>
-            Reistijd:
-            {" " +
-              getTimeString(destination.traveltime * deal.traveltime_factor)}
-          </div>
-          <div>
-            CO<sub>2</sub> uitstoot: {destination.co2train * deal.co2_factor}kg
-          </div>
+    <Card className="card deal" style={style}>
+      <div className="deal-grid">
+        <div className="deal-title">
+          <span>{deal.title}</span>
+        </div>
+        <div
+          className={`deal-content-right ${deal.price_factor === 0.8 &&
+            "deal-best"}`}
+        >
+          €{destination.baseprice * deal.price_factor + ",00"}
+        </div>
+        <div className={`${deal.traveltime_factor === 0.8 && "deal-best"}`}>
+          {getTimeString(destination.traveltime * deal.traveltime_factor)}
+        </div>
+        <div
+          className={`deal-content-right ${deal.co2_factor === 0.8 &&
+            "deal-best"}`}
+        >
+          {destination.co2train * deal.co2_factor}kg CO<sub>2</sub>
         </div>
       </div>
-      <div className="chevron__container">
-        <img
-          className="chevron__icon"
-          src="/images/chevron.png"
-          alt="chevron"
-        />
+      <div className="book-button">
+        <button className="button" onClick={() => handleClick(nextPage)}>
+          Boek
+        </button>
       </div>
     </Card>
   );

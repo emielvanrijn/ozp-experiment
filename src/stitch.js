@@ -10,24 +10,32 @@ const mongodb = client.getServiceClient(
   "ozp-experiment"
 );
 const data = mongodb.db("experiment").collection("data");
+let userId;
 
-// let userId;
-export const initDB = async id => {
+export async function setId() {
   await client.auth.loginWithCredential(new AnonymousCredential());
-  //userId = client.auth.user.id;
+  userId = client.auth.user.id;
+}
+
+export async function setSession() {
+  let res = false;
   await data
-    .findOne({ id: id }) //TODO: Vervangen naar userId
+    .findOne({ id: userId }) //TODO: Vervangen naar userId
     .then(result => {
+      if (result) {
+        res = result.completed;
+      }
       if (!result) {
-        data.insertOne({ id: id, accept_terms: Date.now() }); //TODO: Vervangen naar userId
+        data.insertOne({ id: userId, completed: false }); //TODO: Vervangen naar userId
       }
     })
     .catch(err => console.log(err));
-};
+  return res;
+}
 
-export function addData(payload, id) {
+export function addData(payload) {
   console.log(payload);
-  data.updateOne({ id: id }, { $set: payload }); //TODO: Vervangen naar userId
+  data.updateOne({ id: userId }, { $set: payload });
 }
 
 export async function getCounter() {

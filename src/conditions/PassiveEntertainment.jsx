@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import config from "../config.json";
-import DataContext from "../context.js";
+import GlobalState from "../GlobalState.js";
 import { addData } from "../stitch.js";
 
 export default function PassiveEntertainment() {
@@ -12,7 +12,7 @@ export default function PassiveEntertainment() {
     nextPage,
     currentRound,
     id
-  } = useContext(DataContext);
+  } = useContext(GlobalState);
 
   useEffect(() => {
     addData(
@@ -33,13 +33,11 @@ export default function PassiveEntertainment() {
 
   return (
     <>
-      <Card className="Card flex">
-        <div className="centered-contents">
-          <p>
-            <em>Terwijl wij zoeken...</em>
-          </p>
-          <p>{destination.longFact44}</p>
-        </div>
+      <Card className="Card flex centered-contents">
+        <p>
+          <em>Terwijl wij zoeken...</em>
+        </p>
+        <p>{destination.longFact44}</p>
       </Card>
     </>
   );

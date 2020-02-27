@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import { addData } from "../stitch";
-import DataContext from "../context";
+import GlobalState from "../GlobalState";
 
 export default function SubscriptionConfirmationPage() {
-  const { id } = useContext(DataContext);
+  const { id } = useContext(GlobalState);
 
   useEffect(() => {
     addData({ subscription: Date.now() }, id);

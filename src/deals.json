@@ -1,21 +1,21 @@
 [
   {
     "type": "milieu",
-    "title": "Milieubewust reizen",
+    "title": "Milieubewust",
     "price_factor": 1,
     "co2_factor": 0.8,
     "traveltime_factor": 0.9
   },
   {
     "type": "goedkoop",
-    "title": "Goedkoop reizen",
+    "title": "Goedkoop",
     "price_factor": 0.8,
     "co2_factor": 0.9,
     "traveltime_factor": 1
   },
   {
     "type": "reistijd",
-    "title": "Snel reizen",
+    "title": "Snel",
     "price_factor": 0.9,
     "co2_factor": 1,
     "traveltime_factor": 0.8

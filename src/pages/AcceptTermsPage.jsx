@@ -1,41 +1,49 @@
-import React, { useContext, useEffect } from "react";
-import DataContext from "../context";
-import { initDB } from "../stitch";
+import React, { useContext, useEffect, useState } from "react";
+import GlobalState from "../GlobalState";
+import { setId, addData, setSession, getCounter } from "../stitch";
 
 export default function AcceptTermsPage() {
-  const { setCondition, nextPage, setId } = useContext(DataContext);
+  const { setCondition, nextPage, counter, setCounter } = useContext(
+    GlobalState
+  );
+  const [existsInDB, setExistsInDB] = useState(false);
 
   useEffect(() => {
     const setup = async () => {
-      const tempId = Date.now();
-      await initDB(tempId);
-      setId(tempId);
-      // await getCounter().then(x => {
-      //   setCounter(x - 1); // -1 omdat eerst eigen entry gemaakt wordt
-      //   setCondition((x - 1) % 3);
-      // });
+      await setId();
+      addData({ accept_terms: Date.now() });
+      setExistsInDB(await setSession());
+      await getCounter().then(x => {
+        setCounter(x - 1); // -1 omdat eerst eigen entry gemaakt wordt
+        setCondition((x - 1) % 3);
+      });
     };
     setup();
     //eslint-disable-next-line
   }, []);
 
-  return (
+  return existsInDB === false ? (
     <>
       <div className="flex">
-        <p>Bedankt dat je mij wilt helpen met mijn experiment!</p>
+        <p>Bedankt dat je deel wilt nemen aan dit experiment!</p>
         <p>
-          In dit experiment zul je <strong>tweemaal</strong> (fictief) een
-          treinreis boeken naar een europese stad.
+          Er zijn al {counter.toString()} mensen die dit onderzoek hebben
+          gedaan!
+        </p>
+        <p>
+          Het onderzoek zal maximaal 3 minuten in beslag nemen. We vragen je om
+          alle informatie die tijdens het experiment gevraagd wordt naar{" "}
+          <em>waarheid</em> in te vullen
         </p>
       </div>
-      <p>
-        <strong>N.B.: </strong>Indien er bovenin geen adresbalk zichtbaar is (en
-        hierdoor onderin nu een gele balk zichtbaar is), swipe een paar keer op
-        en neer totdat de adresbalk verschijnt en de gele balk verdwijnt. Hierna
-        zou scrollen niet meer mogelijk moeten zijn.
-      </p>
       <button
-        style={{ marginBottom: "0.5rem" }}
+        onClick={() => {
+          nextPage();
+        }}
+      >
+        Ga door
+      </button>
+      {/* <button
         onClick={() => {
           setCondition(0);
           nextPage();
@@ -44,7 +52,6 @@ export default function AcceptTermsPage() {
         Controle
       </button>
       <button
-        style={{ marginBottom: "0.5rem" }}
         onClick={() => {
           setCondition(1);
           nextPage();
@@ -59,7 +66,12 @@ export default function AcceptTermsPage() {
         }}
       >
         Actief
-      </button>
+      </button> */}
     </>
+  ) : (
+    <div>
+      Volgens onze gegevens heb je dit experiment al eens gedaan, heel erg
+      bedankt hiervoor!
+    </div>
   );
 }

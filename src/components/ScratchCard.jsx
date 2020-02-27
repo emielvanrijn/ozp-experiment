@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-// This is an adapted version of the react-scratchcard module on npm
+// This is an adapted version of the react-scratchcard module on npm:
 
 class ScratchCard extends Component {
   constructor(props) {
@@ -106,7 +106,7 @@ class ScratchCard extends Component {
       y = this.lastPoint.y + Math.cos(angle) * i;
       this.ctx.globalCompositeOperation = "destination-out";
       this.ctx.beginPath();
-      this.ctx.arc(x, y, 32, 0, 2 * Math.PI, false);
+      this.ctx.arc(x, y, 40, 0, 2 * Math.PI, false);
       this.ctx.fill();
     }
 

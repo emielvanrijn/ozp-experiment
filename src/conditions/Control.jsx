@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import config from "../config.json";
 import { ProgressBar, Card } from "react-bootstrap";
 import { addData } from "../stitch.js";
-import DataContext from "../context.js";
+import GlobalState from "../GlobalState.js";
 
 export default function Control() {
   const [progressBarFill, setProgressBarFill] = useState(0);
@@ -14,7 +14,7 @@ export default function Control() {
     nextPage,
     currentRound,
     id
-  } = useContext(DataContext);
+  } = useContext(GlobalState);
 
   useEffect(() => {
     addData(
