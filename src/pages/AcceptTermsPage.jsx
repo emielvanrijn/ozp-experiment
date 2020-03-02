@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import GlobalState from "../GlobalState";
-import { setId, setSession, getCounter } from "../stitch";
+import { setId, setSession, getCounter, addData } from "../stitch";
+import { deviceDetect } from "react-device-detect";
 
 export default function AcceptTermsPage() {
   const { nextPage, setCounter, setCondition } = useContext(GlobalState);
@@ -14,6 +15,8 @@ export default function AcceptTermsPage() {
         setCounter(x);
         setCondition(x % 3);
       });
+      const device = deviceDetect();
+      addData({ device, isMobile: device.isMobile });
     };
     setup();
     //eslint-disable-next-line
