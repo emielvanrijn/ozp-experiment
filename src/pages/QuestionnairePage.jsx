@@ -22,8 +22,8 @@ export default function QuestionnairePage() {
 
   useEffect(() => {
     addData({
-      ["questionnaire_" + currentRound.toString()]: Date.now()
-      // ["deal_" + currentRound.toString()]: deal.title
+      ["questionnaire_" + currentRound.toString()]: Date.now(),
+      ["deal_" + currentRound.toString()]: deal.title
     });
     //eslint-disable-next-line
   }, []);
