@@ -5,7 +5,7 @@ export default function GlobalStateProvider({ children }) {
   const [destination, setDestination] = useState(null);
   const [deal, setDeal] = useState(null);
   const [counter, setCounter] = useState(0);
-  const [condition, setCondition] = useState(0);
+  const [condition, setCondition] = useState(null);
   const [occupation, setOccupation] = useState(null);
   const [preference, setPreference] = useState(null);
   const [startDrawing, setStartDrawing] = useState(null);

@@ -5,9 +5,10 @@ import { addData } from "../stitch";
 import GlobalState from "../GlobalState";
 
 export default function ThankyouPage() {
-  const { nextPage, id } = useContext(GlobalState);
+  const { nextPage } = useContext(GlobalState);
 
   const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
 
   useEffect(() => {
     addData({ completed: true });
@@ -17,37 +18,39 @@ export default function ThankyouPage() {
   return (
     <>
       <Card className="card flex">
-        <p>
-          Heel erg bedankt voor het deelnemen! Mocht je op de hoogte willen
-          blijven van de resultaten van dit onderzoek, dan kun je hier je
-          e-mailadres achterlaten!
-        </p>
-        <p>
-          Mocht je geen updates willen ontvangen, dan kun je dit scherm nu
-          gewoon afsluiten
-        </p>
-        <center>
+        <div className="scrollable flex">
+          <p>Heel erg bedankt voor het deelnemen!</p>
           <p>
-            <em>Je e-mailadres zal los van de data verwerkt worden</em>
+            Op- of aanmerkingen met betrekking tot dit experiment? Laat hier je
+            reactie achter
           </p>
-        </center>
-        <input
-          className="email-input"
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
+          <input
+            style={{ width: "100%" }}
+            className="email-input"
+            type="text"
+            value={comment}
+            onChange={e => setComment(e.target.value)}
+          />
+          <hr />
+          <p>Op de hoogte blijven van de resultaten? Vul je e-mail in!</p>
+          <input
+            style={{ width: "100%" }}
+            className="email-input"
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
       </Card>
       <Button
         variant="success"
         className="button"
         onClick={() => {
-          addData({ email }, id);
+          addData({ email, comment });
           nextPage();
         }}
-        disabled={email === "" ? true : false}
       >
-        Aanmelden
+        Verzenden
       </Button>
     </>
   );
