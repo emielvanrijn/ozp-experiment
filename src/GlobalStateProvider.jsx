@@ -13,6 +13,8 @@ export default function GlobalStateProvider({ children }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [currentRound, setCurrentRound] = useState(1);
 
+  const [information, setInformation] = useState(null);
+
   const nextPage = () => setCurrentPage(currentPage + 1);
   const prevPage = () => setCurrentPage(currentPage - 1);
 
@@ -38,7 +40,9 @@ export default function GlobalStateProvider({ children }) {
     currentRound,
     setCurrentRound,
     nextPage,
-    prevPage
+    prevPage,
+    information,
+    setInformation
   };
   return <GlobalState.Provider value={value}>{children}</GlobalState.Provider>;
 }

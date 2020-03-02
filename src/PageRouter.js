@@ -21,7 +21,7 @@ import Button from "react-bootstrap/Button";
 
 export default function PageRouter() {
   const { condition, currentPage, prevPage } = useContext(GlobalState);
-  const disableBackButtonPageIndices = [2, 5, 8, 9, 10];
+  const disableBackButtonPageIndices = [5, 8, 9, 10];
   return (
     <div className={currentPage <= 1 ? "intro" : "app"}>
       {currentPage >= 2 && currentPage !== 4 && (

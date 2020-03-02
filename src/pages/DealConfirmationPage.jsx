@@ -1,22 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { addData } from "../stitch";
 import GlobalState from "../GlobalState";
 import { getTimeString } from "../helpers";
 
 export default function DealConfirmationPage() {
-  const { nextPage, currentRound, deal, destination, id } = useContext(
-    GlobalState
-  );
-
-  useEffect(() => {
-    addData(
-      { ["deal_confirmation_" + currentRound.toString()]: Date.now() },
-      id
-    );
-    //eslint-disable-next-line
-  }, []);
+  const { nextPage, deal, destination } = useContext(GlobalState);
 
   return (
     <>
@@ -44,19 +33,13 @@ function DealCard({ deal, destination }) {
         <div className="deal-title">
           <span>{deal.title}</span>
         </div>
-        <div
-          className={`deal-content-right ${deal.price_factor === 0.8 &&
-            "deal-best"}`}
-        >
+        <div className="deal-content-right">
           €{destination.baseprice * deal.price_factor + ",00"}
         </div>
-        <div className={`${deal.traveltime_factor === 0.8 && "deal-best"}`}>
+        <div>
           {getTimeString(destination.traveltime * deal.traveltime_factor)}
         </div>
-        <div
-          className={`deal-content-right ${deal.co2_factor === 0.8 &&
-            "deal-best"}`}
-        >
+        <div className="deal-content-right">
           {destination.co2train * deal.co2_factor}kg CO<sub>2</sub>
         </div>
       </div>

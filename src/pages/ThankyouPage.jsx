@@ -10,7 +10,7 @@ export default function ThankyouPage() {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    addData({ thankyou: Date.now(), completed: true });
+    addData({ completed: true });
     //eslint-disable-next-line
   }, []);
 

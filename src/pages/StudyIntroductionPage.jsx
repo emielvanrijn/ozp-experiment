@@ -14,10 +14,9 @@ export default function StudyIntroductionPage() {
             </center>
             <p>
               In dit experiment zul je <em>tweemaal</em> een treinreis boeken
-              naar een europese stad door middel van de website
-              Treinreisstunter.nl. Deze website zoekt op basis van twee criteria
-              verschillende websites af naar de beste deals, die je ook meteen
-              via die website kunt boeken.
+              naar een Europese stad via de website Treinreisstunter.nl. Deze
+              website zoekt op basis van twee criteria verschillende websites af
+              naar de beste deals, die je ook meteen via de website kunt boeken.
             </p>
             <p>Eerst vragen we je om een treinreis te boeken naar:</p>
             <center>

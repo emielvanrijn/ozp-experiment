@@ -13,20 +13,18 @@ export default function Control() {
     preference,
     nextPage,
     currentRound,
-    id
+    information
   } = useContext(GlobalState);
 
   useEffect(() => {
-    addData(
-      {
-        ["occupation_" + currentRound.toString()]: occupation,
-        ["preference_" + currentRound.toString()]: preference,
-        ["destination_" + currentRound.toString()]: destination.name,
-        ["condition_type_" + currentRound.toString()]: "control",
-        ["condition_time_" + currentRound.toString()]: Date.now()
-      },
-      id
-    );
+    addData({
+      ["information_" + currentRound.toString()]: information,
+      ["occupation_" + currentRound.toString()]: occupation,
+      ["preference_" + currentRound.toString()]: preference,
+      ["destination_" + currentRound.toString()]: destination.name,
+      ["condition_type_" + currentRound.toString()]: "control",
+      ["condition_time_" + currentRound.toString()]: Date.now()
+    });
     let counter = 0;
     const interval = setInterval(() => {
       if (counter === 100) {

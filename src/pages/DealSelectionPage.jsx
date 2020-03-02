@@ -11,19 +11,15 @@ export default function DealSelectionPage() {
     destination,
     startDrawing,
     finishDrawing,
-    currentRound,
-    id
+    currentRound
   } = useContext(GlobalState);
 
   useEffect(() => {
-    addData(
-      {
-        ["start_drawing_" + currentRound.toString()]: startDrawing,
-        ["finish_drawing_" + currentRound.toString()]: finishDrawing,
-        ["deal_selection_" + currentRound.toString()]: Date.now()
-      },
-      id
-    );
+    addData({
+      ["start_drawing_" + currentRound.toString()]: startDrawing,
+      ["finish_drawing_" + currentRound.toString()]: finishDrawing,
+      ["deal_selection_" + currentRound.toString()]: Date.now()
+    });
     //eslint-disable-next-line
   }, []);
 
@@ -60,19 +56,13 @@ function DealCard({ deal, destination, style }) {
         <div className="deal-title">
           <span>{deal.title}</span>
         </div>
-        <div
-          className={`deal-content-right ${deal.price_factor === 0.8 &&
-            "deal-best"}`}
-        >
+        <div className="deal-content-right">
           €{destination.baseprice * deal.price_factor + ",00"}
         </div>
-        <div className={`${deal.traveltime_factor === 0.8 && "deal-best"}`}>
+        <div>
           {getTimeString(destination.traveltime * deal.traveltime_factor)}
         </div>
-        <div
-          className={`deal-content-right ${deal.co2_factor === 0.8 &&
-            "deal-best"}`}
-        >
+        <div className="deal-content-right">
           {destination.co2train * deal.co2_factor}kg CO<sub>2</sub>
         </div>
       </div>

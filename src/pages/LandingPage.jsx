@@ -1,17 +1,9 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
-import { addData } from "../stitch";
 import GlobalState from "../GlobalState";
 import cities from "../cities.json";
 
 export default function LandingPage() {
-  const { currentRound, id } = useContext(GlobalState);
-
-  useEffect(() => {
-    addData({ ["landing_" + currentRound.toString()]: Date.now() }, id);
-    //eslint-disable-next-line
-  }, []);
-
   return (
     <>
       <div className="landingpage__jumbotron">

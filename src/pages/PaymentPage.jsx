@@ -1,20 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { addData } from "../stitch";
 import GlobalState from "../GlobalState";
 
 export default function InformationPage() {
-  const { nextPage, currentRound, deal } = useContext(GlobalState);
-
-  useEffect(() => {
-    addData({
-      ["payment_" + currentRound.toString()]: Date.now(),
-      deal: deal.title
-    });
-    //eslint-disable-next-line
-  }, []);
-
+  const { nextPage } = useContext(GlobalState);
   return (
     <>
       <Card className="card flex">

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { addData } from "../stitch";
 import GlobalState from "../GlobalState";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
@@ -12,12 +11,11 @@ export default function InformationPage() {
     preference,
     setPreference,
     nextPage,
-    currentRound,
-    id
+    setInformation
   } = useContext(GlobalState);
 
   useEffect(() => {
-    addData({ ["information_" + currentRound.toString()]: Date.now() }, id);
+    setInformation(Date.now());
     //eslint-disable-next-line
   }, []);
   return (

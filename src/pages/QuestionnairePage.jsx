@@ -10,7 +10,7 @@ export default function QuestionnairePage() {
     setCurrentPage,
     currentRound,
     setCurrentRound,
-    id
+    deal
   } = useContext(GlobalState);
 
   const [wachtPerceptie, setWachtPerceptie] = useState(null);
@@ -39,11 +39,19 @@ export default function QuestionnairePage() {
     "12",
     "13",
     "14",
-    "15"
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
   ];
 
   useEffect(() => {
-    addData({ ["questionnaire_" + currentRound.toString()]: Date.now() }, id);
+    addData({
+      ["questionnaire_" + currentRound.toString()]: Date.now(),
+      ["deal_" + currentRound.toString()]: deal.title
+    });
     //eslint-disable-next-line
   }, []);
 
@@ -84,15 +92,11 @@ export default function QuestionnairePage() {
         className="button"
         disabled={!(wachtPerceptie && wachtTijdSchatting)}
         onClick={() => {
-          addData(
-            {
-              ["wachttijd_perceptie_" +
-              currentRound.toString()]: wachtPerceptie,
-              ["wachttijd_schatting_" +
-              currentRound.toString()]: wachtTijdSchatting
-            },
-            id
-          );
+          addData({
+            ["wachttijd_perceptie_" + currentRound.toString()]: wachtPerceptie,
+            ["wachttijd_schatting_" +
+            currentRound.toString()]: wachtTijdSchatting
+          });
           currentRound === 1 ? startNewRound() : nextPage();
         }}
       >

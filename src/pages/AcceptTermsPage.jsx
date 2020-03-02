@@ -1,21 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import GlobalState from "../GlobalState";
-import { setId, addData, setSession, getCounter } from "../stitch";
+import { setId, setSession, getCounter } from "../stitch";
 
 export default function AcceptTermsPage() {
-  const { setCondition, nextPage, counter, setCounter } = useContext(
-    GlobalState
-  );
+  const { nextPage, setCounter, setCondition } = useContext(GlobalState);
   const [existsInDB, setExistsInDB] = useState(false);
 
   useEffect(() => {
     const setup = async () => {
       await setId();
-      addData({ accept_terms: Date.now() });
       setExistsInDB(await setSession());
-      await getCounter().then(x => {
-        setCounter(x - 1); // -1 omdat eerst eigen entry gemaakt wordt
-        setCondition((x - 1) % 3);
+      getCounter().then(x => {
+        setCounter(x);
+        setCondition(x % 3);
       });
     };
     setup();
@@ -26,10 +23,6 @@ export default function AcceptTermsPage() {
     <>
       <div className="flex">
         <p>Bedankt dat je deel wilt nemen aan dit experiment!</p>
-        <p>
-          Er zijn al {counter.toString()} mensen die dit onderzoek hebben
-          gedaan!
-        </p>
         <p>
           Het onderzoek zal maximaal 3 minuten in beslag nemen. We vragen je om
           alle informatie die tijdens het experiment gevraagd wordt naar{" "}

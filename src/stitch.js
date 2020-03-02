@@ -26,7 +26,11 @@ export async function setSession() {
         res = result.completed;
       }
       if (!result) {
-        data.insertOne({ id: userId, completed: false }); //TODO: Vervangen naar userId
+        data.insertOne({
+          id: userId,
+          completed: false,
+          accept_terms: Date.now()
+        }); //TODO: Vervangen naar userId
       }
     })
     .catch(err => console.log(err));
