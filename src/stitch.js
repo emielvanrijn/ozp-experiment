@@ -4,44 +4,46 @@ import {
   AnonymousCredential
 } from "mongodb-stitch-browser-sdk";
 
-const client = Stitch.initializeDefaultAppClient("ozp-experiment-xxhvb");
-const mongodb = client.getServiceClient(
-  RemoteMongoClient.factory,
-  "ozp-experiment"
-);
-const data = mongodb.db("experiment").collection("data");
+// const client = Stitch.initializeDefaultAppClient("ozp-experiment-xxhvb");
+// const mongodb = client.getServiceClient(
+//   RemoteMongoClient.factory,
+//   "ozp-experiment"
+// );
+// const data = mongodb.db("experiment").collection("data");
 let userId;
 
 export async function setId() {
-  await client.auth.loginWithCredential(new AnonymousCredential());
-  userId = client.auth.user.id;
+  // await client.auth.loginWithCredential(new AnonymousCredential());
+  // userId = client.auth.user.id;
 }
 
 export async function setSession() {
-  let res = false;
-  await data
-    .findOne({ id: userId }) //TODO: Vervangen naar userId
-    .then(result => {
-      if (result) {
-        res = result.completed;
-      }
-      if (!result) {
-        data.insertOne({
-          id: userId,
-          completed: false,
-          accept_terms: Date.now()
-        }); //TODO: Vervangen naar userId
-      }
-    })
-    .catch(err => console.log(err));
-  return res;
+  // let res = false;
+  // await data
+  //   .findOne({ id: userId }) //TODO: Vervangen naar userId
+  //   .then(result => {
+  //     if (result) {
+  //       res = result.completed;
+  //     }
+  //     if (!result) {
+  //       data.insertOne({
+  //         id: userId,
+  //         completed: false,
+  //         accept_terms: Date.now()
+  //       }); //TODO: Vervangen naar userId
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
+  // return res;
+  return true;
 }
 
 export function addData(payload) {
   console.log(payload);
-  data.updateOne({ id: userId }, { $set: payload });
+  // data.updateOne({ id: userId }, { $set: payload });
 }
 
 export async function getCounter() {
-  return await data.count();
+  // return await data.count();
+  return 0;
 }

@@ -10,7 +10,7 @@ export default function AcceptTermsPage() {
   useEffect(() => {
     const setup = async () => {
       await setId();
-      setExistsInDB(await setSession());
+      // setExistsInDB(await setSession());
       getCounter().then(x => {
         setCounter(x);
         setCondition(x % 3);
@@ -25,21 +25,17 @@ export default function AcceptTermsPage() {
   return existsInDB === false ? (
     <>
       <div className="flex">
-        <p>Bedankt dat je deel wilt nemen aan dit experiment!</p>
+        <p>Hey hallo daar!</p>
         <p>
-          Het onderzoek zal maximaal 3 minuten in beslag nemen. We vragen je om
-          alle informatie die tijdens het experiment gevraagd wordt naar{" "}
-          <em>waarheid</em> in te vullen
+          Dank voor je interesse in dit experiment! Een overweldigende 500(!)
+          proefpersonen hebben hieraan deelgenomen! Fantastisch! Middels
+          onderstaande buttons kun je nu alle drie de geteste condities
+          doorlopen :). Data wordt niet meer gelogd! Binnenkort komen de code
+          van dit experiment én de verzamelde data (excl. e-mailadressen)
+          publiek beschikbaar!
         </p>
       </div>
       <button
-        onClick={() => {
-          nextPage();
-        }}
-      >
-        Ga door
-      </button>
-      {/* <button
         onClick={() => {
           setCondition(0);
           nextPage();
@@ -62,7 +58,7 @@ export default function AcceptTermsPage() {
         }}
       >
         Actief
-      </button> */}
+      </button>
     </>
   ) : (
     <div>
